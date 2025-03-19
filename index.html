@@ -91,14 +91,6 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
 
 -->
 
-    
-    <!-- <section class="slide" style="background-color:black">
-        <figure>
-            <img class="cover" src="pictures/1.png" alt="blog">
-            <figcaption class="white">CW</figcaption>
-        </figure>
-    </section> -->
-
     <section class="slide" style="background-color:black">
         <figure>
             <img class="cover" src="pictures/1.png" alt="blog">
@@ -563,18 +555,80 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
             <figcaption class="white">CW</figcaption>
         </figure>
     </section>
-    <section class="slide" style="background-color:black">
+
+<!--Hello word example-->
+
+<section class="slide prism over bhgry">
+    <div class="grid-container">
+        <div class="HeaderTitle GG"> 
+            <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+        </div>
+        <div class="PlaceCodeHere canscroll">
+            <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
+                <code style="line-height: 21px !important;">
+                    var builder = WebApplication.CreateBuilder(args);
+
+                    builder.Services
+                        .AddGraphQLServer()
+                        .AddQueryType&lt;Query&gt;();
+                    
+                    var app = builder.Build();
+                    app.MapGraphQL();
+                    
+                    app.MapGet(&quot;/&quot;, () =&gt;
+                    { return Results.Redirect($&quot;/graphql&quot;, permanent: true); });
+                    
+                    app.Run();
+                </code>
+            </pre>
+        </div>
+    </div>
+</section>  
+
+    <!-- <section class="slide" style="background-color:black">
         <figure>
             <img class="cover" src="pictures/77.png" alt="blog">
             <figcaption class="white">CW</figcaption>
         </figure>
-    </section>
-    <section class="slide" style="background-color:black">
+    </section> -->
+
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 21px !important;">
+                        public class Query
+                        {
+                            public string Hello(string name = &quot;World&quot;,
+                                int a = 0, int b = 0)
+                            {
+                                int hour = DateTime.UtcNow.Hour;
+                                string timeMessage = hour == 0 ? &quot;midnight&quot; :
+                                       hour == 12 ? &quot;noon&quot; :
+                                       $&quot;{(hour &gt; 12 ? hour - 12 : hour)}&quot; +
+                                       $&quot;{(hour &gt;= 12 ? &quot;PM&quot; : &quot;AM&quot;)}&quot;;
+                        
+                                string calMessage = a == 0 &amp;&amp; b == 0 ? &quot;&quot; :
+                                    $&quot;The sum of {a} and {b} is {a + b} and &quot;;
+                        
+                                return $&quot;Hello, {name}! {calMessage} &quot; +
+                                    $&quot;It&#39;s {timeMessage}.&quot;;
+                            }
+                        }
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </section>  
+    <!-- <section class="slide" style="background-color:black">
         <figure>
             <img class="cover" src="pictures/78.png" alt="blog">
             <figcaption class="white">CW</figcaption>
         </figure>
-    </section>
+    </section> -->
     <section class="slide" style="background-color:black">
         <figure>
             <img class="cover" src="pictures/79.png" alt="blog">
@@ -608,6 +662,3310 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
     <section class="slide" style="background-color:black">
         <figure>
             <img class="cover" src="pictures/84.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/85.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/86.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/87.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/88.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/89.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+
+<!--Wyciąganie danych DEMO-->
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 21px !important;">
+
+                        public class Document
+                        {
+                            public int Id { get; set; }
+                            public required string Title { get; set; }
+                            public string? Content { get; set; }
+                            public string? Author { get; set; }
+                            public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+                            public DateTime ModifiedAt { get; set; } = DateTime.UtcNow;
+                            public List&lt;Tag&gt; Tags { get; set; } = new();
+                            public List&lt;Metadata&gt; Metadata { get; set; } = new();
+                        }
+                        
+                        public class Metadata
+                        {
+                            public int Id { get; set; }
+                            public required string FieldName { get; set; }
+                            public string? Value { get; set; }
+                        
+                            public int DocumentId { get; set; }
+                            public Document Document { get; set; } = null!;
+                        }
+                        
+                        public class Tag
+                        {
+                            public int Id { get; set; }
+                            public required string Name { get; set; }
+                            public List&lt;Document&gt; Documents { get; set; } = new();
+                        }
+
+                                                                                    
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </section>  
+
+    <!-- <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/90.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section> -->
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 21px !important;">
+                        public class AppDbContext : DbContext
+                        {
+                            public AppDbContext(DbContextOptions&lt;AppDbContext&gt; options) : base(options) { }
+                        
+                            public DbSet&lt;Document&gt; Documents =&gt; Set&lt;Document&gt;();
+                            public DbSet&lt;Models.Tag&gt; Tags =&gt; Set&lt;Models.Tag&gt;();
+                            public DbSet&lt;Metadata&gt; Metadata =&gt; Set&lt;Metadata&gt;();
+                        
+                            protected override void OnModelCreating(ModelBuilder modelBuilder)
+                            {
+                                // Configure many-to-many relationship between Documents and Tags
+                                modelBuilder.Entity&lt;Document&gt;()
+                                    .HasMany(d =&gt; d.Tags)
+                                    .WithMany(t =&gt; t.Documents)
+                                    .UsingEntity(j =&gt; j.ToTable(&quot;DocumentTags&quot;));
+                        
+                                // Configure one-to-many relationship between Document and Metadata
+                                modelBuilder.Entity&lt;Document&gt;()
+                                    .HasMany(d =&gt; d.Metadata)
+                                    .WithOne(m =&gt; m.Document)
+                                    .HasForeignKey(m =&gt; m.DocumentId)
+                                    .OnDelete(DeleteBehavior.Cascade);
+                            }
+                        }                                                       
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </section> 
+    <!-- <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/91.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section> -->
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 21px !important;">
+
+                        public class Query
+                        {
+                            public IQueryable&lt;Document&gt; GetDocuments(AppDbContext context)
+                            {
+                                return context.Documents.Include(a =&gt; a.Tags).Include(a =&gt; a.Metadata);
+                            }
+                        }                                                                       
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </section> 
+    <!-- <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/92.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section> -->
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 21px !important;">
+                        var builder = WebApplication.CreateBuilder(args);
+
+                        // Add services to the container
+                        builder.Services.AddDbContextFactory&lt;AppDbContext&gt;(options =&gt;
+                            options.UseSqlite(builder.Configuration.GetConnectionString(&quot;DefaultConnection&quot;)));
+                        
+                        // Register GraphQL services
+                        builder.Services
+                            .AddGraphQLServer()
+                            .AddTypes(typeof(Query))
+                            .RegisterDbContextFactory&lt;AppDbContext&gt;();
+                        
+                        var app = builder.Build();
+                        
+                        app.MapGraphQL();
+                        
+                        app.Run();
+                                                                                         
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </section> 
+    <!-- <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/93.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section> -->
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/94.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/95.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/96.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    
+<!--PEŁNY przykład ef core DEMO-->
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 21px !important;">
+                        var builder = WebApplication.CreateBuilder(args);
+
+                        // Add services to the container
+                        builder.Services.AddDbContextFactory&lt;AppDbContext&gt;(options =&gt;
+                            options.UseSqlite(builder.Configuration.GetConnectionString(&quot;DefaultConnection&quot;)));
+                        
+                        // Register GraphQL services
+                        builder.Services
+                            .AddGraphQLServer()
+                            .AddTypes(typeof(Query))
+                            .AddProjections()
+                            .AddSorting()
+                            .AddFiltering()
+                            .AddType&lt;DocumentType&gt;()
+                            .AddType&lt;TagType&gt;()
+                            .AddType&lt;MetadataType&gt;()
+                            .RegisterDbContextFactory&lt;AppDbContext&gt;();
+                        
+                        
+                        var app = builder.Build();
+                        
+                        app.MapGraphQL();
+                        
+                        app.Run();
+                                                                              
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </section> 
+    <!-- <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/97.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section> -->
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 21px !important;">
+                        public class Query
+                        {
+                            [UsePaging]
+                            [UseProjection]
+                            [UseFiltering]
+                            [UseSorting]
+                            public IQueryable&lt;Document&gt; GetDocuments(AppDbContext context,
+                                IResolverContext resolver)
+                            {
+                                var all = context.Documents.Include(a =&gt; a.Tags).Include(a =&gt; a.Metadata);
+                                return resolver.ArgumentKind(&quot;order&quot;) is ValueKind.Null
+                                ? all.OrderBy(t =&gt; t.Title) : all;
+                            }
+                        
+                        }                                              
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </section> 
+    <!-- <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/98.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section> -->
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/99.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/100.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/100.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/101.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/102.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/103.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/104.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/105.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/106.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/107.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/108.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/109.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/110.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/111.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/112.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/113.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/114.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/115.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/116.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/117.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/118.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/119.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/120.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 21px !important;">
+                        public class DocumentType : ObjectType&lt;Document&gt;
+                        {
+                            protected override void Configure(IObjectTypeDescriptor&lt;Document&gt; descriptor)
+                            {
+                                descriptor.Description(&quot;Represents a document in the system&quot;);
+                        
+                                descriptor.Field(d =&gt; d.Id).Description(&quot;The unique identifier of the document&quot;);
+                                descriptor.Field(d =&gt; d.Title).Description(&quot;The title of the document&quot;);
+                                descriptor.Field(d =&gt; d.Content).Description(&quot;The content of the document&quot;);
+                                descriptor.Field(d =&gt; d.Author).Description(&quot;The author of the document&quot;);
+                                //descriptor.Field(d =&gt; d.CreatedAt).Description(&quot;When the document was created&quot;);
+                                //descriptor.Field(d =&gt; d.ModifiedAt).Description(&quot;When the document was last modified&quot;);
+                                descriptor.Field(d =&gt; d.Tags).Description(&quot;The tags associated with the document&quot;);
+                                descriptor.Field(d =&gt; d.Metadata).Description(&quot;The metadata associated with the document&quot;);
+                            }
+                        }
+
+                        builder.Services
+                        .AddGraphQLServer()
+                        .AddTypes(typeof(Query))
+                        .AddProjections()
+                        .AddSorting()
+                        .AddFiltering()
+                        .AddType&lt;DocumentType&gt;()
+                        .AddType&lt;TagType&gt;()
+                        .AddType&lt;MetadataType&gt;()
+                        .RegisterDbContextFactory&lt;AppDbContext&gt;();
+                        
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </section> 
+    <!-- <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/121png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section> -->
+
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/122.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/123.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/124.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/125.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 21px !important;">
+                        public class DocumentRepository
+                        {
+                            private readonly string _connectionString;
+                        
+                            public DocumentRepository(string connectionString)
+                            {
+                                _connectionString = connectionString;
+                            }
+                        
+                            private IDbConnection CreateConnection()
+                            {
+                                return new SqliteConnection(_connectionString);
+                            }
+                        
+                            public async Task&lt;IEnumerable&lt;Document&gt;&gt; GetDocumentsAsync(string? orderBy = null,
+                                string? direction = &quot;ASC&quot;, int? skip = null, int? take = null)
+                            {
+                                using var connection = CreateConnection();
+                        
+                                // Base query
+                                var sql = &quot;SELECT d.*, t.*, m.* FROM Documents d &quot; +
+                                          &quot;LEFT JOIN DocumentTags dt ON d.Id = dt.DocumentsId &quot; +
+                                          &quot;LEFT JOIN Tags t ON dt.TagsId = t.Id &quot; +
+                                          &quot;LEFT JOIN Metadata m ON d.Id = m.DocumentId&quot;;
+                        
+                                // Add ordering
+                                if (!string.IsNullOrEmpty(orderBy))
+                                {
+                                    sql += $&quot; ORDER BY d.{orderBy} {direction}&quot;;
+                                }
+                                else
+                                {
+                                    sql += &quot; ORDER BY d.Title ASC&quot;;
+                                }
+                        
+                                // Add pagination
+                                if (skip.HasValue &amp;&amp; take.HasValue)
+                                {
+                                    sql += $&quot; LIMIT {take.Value} OFFSET {skip.Value}&quot;;
+                                }
+                        
+                                // Use Dapper&#39;s QueryAsync with a multi-mapping approach
+                                var documentDictionary = new Dictionary&lt;int, Document&gt;();
+                        
+                                await connection.QueryAsync&lt;Document, Tag, Metadata, Document&gt;(
+                                    sql,
+                                    (document, tag, metadata) =&gt;
+                                    {
+                                        if (!documentDictionary.TryGetValue(document.Id, out var documentEntry))
+                                        {
+                                            documentEntry = document;
+                                            documentEntry.Tags = new List&lt;Tag&gt;();
+                                            documentEntry.Metadata = new List&lt;Metadata&gt;();
+                                            documentDictionary.Add(document.Id, documentEntry);
+                                        }
+                        
+                                        if (tag != null &amp;&amp; tag.Id != 0)
+                                        {
+                                            if (!documentEntry.Tags.Any(t =&gt; t.Id == tag.Id))
+                                            {
+                                                documentEntry.Tags.Add(tag);
+                                            }
+                                        }
+                        
+                                        if (metadata != null &amp;&amp; metadata.Id != 0)
+                                        {
+                                            if (!documentEntry.Metadata.Any(m =&gt; m.Id == metadata.Id))
+                                            {
+                                                documentEntry.Metadata.Add(metadata);
+                                            }
+                                        }
+                        
+                                        return documentEntry;
+                                    },
+                                    splitOn: &quot;Id,Id&quot;);
+                        
+                                return documentDictionary.Values;
+                            }
+                        
+                            public async Task&lt;Document?&gt; GetDocumentByIdAsync(int id)
+                            {
+                                using var connection = CreateConnection();
+                        
+                                var sql = &quot;SELECT d.*, t.*, m.* FROM Documents d &quot; +
+                                          &quot;LEFT JOIN DocumentTags dt ON d.Id = dt.DocumentsId &quot; +
+                                          &quot;LEFT JOIN Tags t ON dt.TagsId = t.Id &quot; +
+                                          &quot;LEFT JOIN Metadata m ON d.Id = m.DocumentId &quot; +
+                                          &quot;WHERE d.Id = @Id&quot;;
+                        
+                                Document? result = null;
+                                await connection.QueryAsync&lt;Document, Tag, Metadata, Document&gt;(
+                                    sql,
+                                    (document, tag, metadata) =&gt;
+                                    {
+                                        if (result == null)
+                                        {
+                                            result = document;
+                                            result.Tags = new List&lt;Tag&gt;();
+                                            result.Metadata = new List&lt;Metadata&gt;();
+                                        }
+                        
+                                        if (tag != null &amp;&amp; tag.Id != 0 &amp;&amp; !result.Tags.Any(t =&gt; t.Id == tag.Id))
+                                        {
+                                            result.Tags.Add(tag);
+                                        }
+                        
+                                        if (metadata != null &amp;&amp; metadata.Id != 0 &amp;&amp; !result.Metadata.Any(m =&gt; m.Id == metadata.Id))
+                                        {
+                                            result.Metadata.Add(metadata);
+                                        }
+                        
+                                        return result;
+                                    },
+                                    new { Id = id },
+                                    splitOn: &quot;Id,Id&quot;);
+                        
+                                return result;
+                            }
+                        
+                            public async Task&lt;int&gt; CreateDocumentAsync(Document document)
+                            {
+                                using var connection = CreateConnection();
+                                connection.Open();
+                                using var transaction = connection.BeginTransaction();
+                        
+                                try
+                                {
+                                    // Insert document
+                                    var sql = @&quot;
+                                        INSERT INTO Documents (Title, Content, Author, CreatedAt, ModifiedAt)
+                                        VALUES (@Title, @Content, @Author, @CreatedAt, @ModifiedAt);
+                                        SELECT last_insert_rowid();&quot;;
+                        
+                                    var documentId = await connection.ExecuteScalarAsync&lt;int&gt;(sql, document, transaction);
+                        
+                                    // Insert tags relationships
+                                    if (document.Tags.Any())
+                                    {
+                                        foreach (var tag in document.Tags)
+                                        {
+                                            // Insert tag if it doesn&#39;t exist
+                                            var existingTagId = await connection.ExecuteScalarAsync&lt;int?&gt;(
+                                                &quot;SELECT Id FROM Tags WHERE Name = @Name&quot;, new { tag.Name }, transaction);
+                        
+                                            var tagId = existingTagId ?? await connection.ExecuteScalarAsync&lt;int&gt;(
+                                                &quot;INSERT INTO Tags (Name) VALUES (@Name); SELECT last_insert_rowid();&quot;,
+                                                new { tag.Name }, transaction);
+                        
+                                            // Create relationship
+                                            await connection.ExecuteAsync(
+                                                &quot;INSERT INTO DocumentTags (DocumentId, TagId) VALUES (@DocumentId, @TagId)&quot;,
+                                                new { DocumentId = documentId, TagId = tagId }, transaction);
+                                        }
+                                    }
+                        
+                                    // Insert metadata
+                                    if (document.Metadata.Any())
+                                    {
+                                        foreach (var meta in document.Metadata)
+                                        {
+                                            await connection.ExecuteAsync(
+                                                &quot;INSERT INTO Metadata (FieldName, Value, DocumentId) VALUES (@FieldName, @Value, @DocumentId)&quot;,
+                                                new { meta.FieldName, meta.Value, DocumentId = documentId }, transaction);
+                                        }
+                                    }
+                        
+                                    transaction.Commit();
+                                    return documentId;
+                                }
+                                catch
+                                {
+                                    transaction.Rollback();
+                                    throw;
+                                }
+                            }
+                        }
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </section> 
+    <!-- <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/126.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section> -->
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/127.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 21px !important;">
+                        [UseOffsetPaging]
+                        [UseSorting(typeof(DocumentSortInputType))]
+                        [UseFiltering(typeof(UserFilterType))]
+                        public async Task&lt;IEnumerable&lt;Document&gt;&gt; GetDocumentsAsync(
+                            [Service] DocumentRepository repository,
+                             IResolverContext resolver)
+                        {
+                            var selections = resolver.GetSelectedField();
+                            List&lt;string&gt; fields = new List&lt;string&gt;();
+                            foreach (var parent in selections.GetFields())
+                            {
+                                foreach (var innerCh in parent.GetFields())
+                                {
+                                    fields.Add(innerCh.Field.Name);
+                                }
+                            }
+                    
+                            var filterDic = resolver.ArgumentValue&lt;IReadOnlyDictionary&lt;string, object&gt;?&gt;(&quot;where&quot;);
+                    
+                            string? orderBy = null;
+                            string? direction = &quot;ASC&quot;;
+                            int? skip = null;
+                            int? take = null;
+                    
+                            return await repository.GetDocumentsAsync(orderBy, direction, skip, take);
+                        }
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </section> 
+    <!-- <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/128.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section> -->
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/129.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/130.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/131.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/132.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/133.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/134.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>    
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/135.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/136.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/137.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/138.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/139.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/140.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 21px !important;">
+                        using HotChocolate.Resolvers;
+                        using Redis.OM;
+                        using Redis.OM.Contracts;
+                        using Redis.OM.Searching;
+                        
+                        namespace GraphQLBlog;
+                        
+                        [ExtendObjectType(&quot;Query&quot;)]
+                        public class Query
+                        {
+                            private readonly IRedisCollection&lt;Book&gt; _books;
+                        
+                            public Query(IRedisConnectionProvider provider)
+                            {
+                                _books = provider.RedisCollection&lt;Book&gt;();
+                            }
+                        
+                            [UsePaging(IncludeTotalCount = true, MaxPageSize = 10)]
+                            [UseProjection]
+                            [UseFiltering]
+                            public IQueryable&lt;Book&gt; GetBook(IResolverContext context) =&gt; _books.Filter(context);
+                        }
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </section> 
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 21px !important;">
+                        using GraphQLBlog;
+                        using Redis.OM;
+                        using Redis.OM.Contracts;
+                        
+                        var builder = WebApplication.CreateBuilder(args);
+                        
+                        builder.Services.AddSingleton&lt;IRedisConnectionProvider&gt;
+                            (new RedisConnectionProvider(&quot;redis://localhost:6379&quot;));
+                        builder.Services.AddHostedService&lt;StartupService&gt;();
+                        
+                        builder.Services.AddGraphQLServer()
+                            .AddProjections()
+                            .AddFiltering()
+                            .AddQueryType(d =&gt; d.Name(&quot;Query&quot;))
+                            .AddType&lt;Query&gt;();
+                        
+                        var app = builder.Build();
+                        app.MapGraphQL();
+                        app.Run();
+                        
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </section>
+    <!-- <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/141.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section> -->
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/142.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/143.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/144.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/145.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/146.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 21px !important;">
+                        // GraphQL Schema Types
+                        public class ProductType : ObjectType&lt;Product&gt;
+                        {
+                            protected override void Configure(IObjectTypeDescriptor&lt;Product&gt; descriptor)
+                            {
+                                descriptor.Field(p =&gt; p.Id)
+                                    .Type&lt;NonNullType&lt;IntType&gt;&gt;();
+                                descriptor.Field(p =&gt; p.Name)
+                                    .Type&lt;NonNullType&lt;StringType&gt;&gt;();
+                                descriptor.Field(p =&gt; p.Price)
+                                    .Type&lt;NonNullType&lt;DecimalType&gt;&gt;();
+                                descriptor.Field(p =&gt; p.Description)
+                                    .Type&lt;StringType&gt;();
+                        
+                                // Use separate resolvers for Details and Reviews so that
+                                // they can be deferred or streamed.
+                                descriptor.Field(&quot;details&quot;)
+                                    .ResolveWith&lt;ProductResolvers&gt;(r =&gt; r.GetDetails(default))
+                                    .Type&lt;ProductDetailsType&gt;();
+                                descriptor.Field(&quot;reviews&quot;)
+                                    .ResolveWith&lt;ProductResolvers&gt;(r =&gt; r.GetReviews(default))
+                                    .Type&lt;ListType&lt;ReviewType&gt;&gt;();
+                            }
+                        }
+                        
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </section>
+    <!-- <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/147.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section> -->
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/148.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/149.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/150.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/151.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/152.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/153.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/154.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/155.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/156.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+
+<!--REST API DEMO-->
+
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 21px !important;">
+                        using Microsoft.EntityFrameworkCore;
+                        using Scalar.AspNetCore;
+                        
+                        var builder = WebApplication.CreateBuilder(args);
+                        // Add services to the container
+                        builder.Services.AddDbContext&lt;ApplicationDbContext&gt;(options =&gt;
+                            options.UseSqlite(builder.Configuration.GetConnectionString(&quot;DefaultConnection&quot;)
+                            ?? &quot;Data Source=documentViews.db&quot;));
+                        
+                        builder.Services.AddScoped&lt;IDocumentViewService, DocumentViewService&gt;();
+                        builder.Services.AddOpenApi();
+                        
+                        // Add endpoint mapping
+                        builder.Services.AddEndpointsApiExplorer();
+                        var app = builder.Build();
+                        
+                        if (app.Environment.IsDevelopment())
+                        {
+                            app.MapOpenApi();
+                            app.UseReDoc(c =&gt;
+                            {
+                                c.SpecUrl(&quot;/openapi/v1.json&quot;);
+                            });
+                            app.MapScalarApiReference();
+                        }
+                        
+                        app.UseHttpsRedirection();
+                        
+                        app.MapGroup(&quot;/views&quot;)
+                            .MapDocumentViewEndpoints();
+                        
+                        app.Run();
+                        
+                        public static class DocumentViewEndpointExtensions
+                        {
+                            public static IEndpointRouteBuilder MapDocumentViewEndpoints(this IEndpointRouteBuilder endpoints)
+                            {
+                                endpoints.MapGet(&quot;/id/{documentId}/span/{timeFrameS:regex(^(week|month|threemonths)$)}&quot;,
+                                    async (string documentId, string timeFrameS, IDocumentViewService service) =&gt;
+                                {
+                                    if (!Enum.TryParse&lt;TimeFrame&gt;(timeFrameS, true, out var timeFrame))
+                                    {
+                                        return Results.BadRequest
+                                        (&quot;Invalid time frame. Please use &#39;threemonths&#39;, &#39;week&#39;, or &#39;month&#39;.&quot;);
+                                    }
+                                    var result = await service.GetDocumentViewsOverTimeAsync(documentId, timeFrame);
+                                    return Results.Ok(result);
+                                });
+                        
+                                endpoints.MapGet(&quot;/span/{timeFrameS:regex(^(week|month|threemonths)$)}&quot;,
+                                async (string timeFrameS, IDocumentViewService service) =&gt;
+                                {
+                                    if (!Enum.TryParse&lt;TimeFrame&gt;(timeFrameS, true, out var timeFrame))
+                                    {
+                                        return Results.BadRequest
+                                        (&quot;Invalid time frame. Please use &#39;threemonths&#39;, &#39;week&#39;, or &#39;month&#39;.&quot;);
+                                    }
+                                    var result = await service.GetDocumentsViewsOverTimeAsync(timeFrame);
+                                    return Results.Ok(result);
+                                });
+                        
+                                return endpoints;
+                            }
+                        }
+                        
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </section>
+    <!-- <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/157.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section> -->
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/158.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 21px !important;">
+                        public static class DocumentViewEndpointExtensions
+                        {
+                            public static IEndpointRouteBuilder MapDocumentViewEndpoints(this IEndpointRouteBuilder endpoints)
+                            {
+                                endpoints.MapGet(&quot;/id/{documentId}/span/{timeFrameS:regex(^(week|month|threemonths)$)}&quot;,
+                                    async (string documentId, string timeFrameS, IDocumentViewService service) =&gt;
+                                {
+                                    if (!Enum.TryParse&lt;TimeFrame&gt;(timeFrameS, true, out var timeFrame))
+                                    {
+                                        return Results.BadRequest
+                                        (&quot;Invalid time frame. Please use &#39;threemonths&#39;, &#39;week&#39;, or &#39;month&#39;.&quot;);
+                                    }
+                                    var result = await service.GetDocumentViewsOverTimeAsync(documentId, timeFrame);
+                                    return Results.Ok(result);
+                                });
+                        
+                                endpoints.MapGet(&quot;/span/{timeFrameS:regex(^(week|month|threemonths)$)}&quot;,
+                                async (string timeFrameS, IDocumentViewService service) =&gt;
+                                {
+                                    if (!Enum.TryParse&lt;TimeFrame&gt;(timeFrameS, true, out var timeFrame))
+                                    {
+                                        return Results.BadRequest
+                                        (&quot;Invalid time frame. Please use &#39;threemonths&#39;, &#39;week&#39;, or &#39;month&#39;.&quot;);
+                                    }
+                                    var result = await service.GetDocumentsViewsOverTimeAsync(timeFrame);
+                                    return Results.Ok(result);
+                                });
+                        
+                                return endpoints;
+                            }
+                        }
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </section>
+     <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/159.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section> 
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 21px !important;">
+                        //[Node]
+                        [ExtendObjectType(typeof(Document))]
+                        public sealed class DocumentViewsExtendObjecType
+                        {
+                            public async Task&lt;DocumentViews&gt; GetViewChange(ChangeSpan span,
+                                [Parent] Document parent,
+                                [Service] IHttpClientFactory clientFactory,
+                                CancellationToken cancellationToken)
+                            {
+                                using HttpClient client = clientFactory.CreateClient(&quot;documentViews&quot;);
+                        
+                                using var message = new HttpRequestMessage
+                                    (HttpMethod.Get, $&quot;/views/id/{parent.Id}/span/{span.ToString().ToLower()}&quot;);
+                        
+                                var response = await client.SendAsync(message, cancellationToken);
+                                var content = await response.Content.ReadAsByteArrayAsync(cancellationToken);
+                                var json = JsonDocument.Parse(content);
+                        
+                                var options = new JsonSerializerOptions
+                                {
+                                    PropertyNameCaseInsensitive = true
+                                };
+                        
+                                var list = json.Deserialize&lt;List&lt;DocumentViewRecord&gt;&gt;(options);
+                        
+                                if (list == null || list.Count == 0)
+                                {
+                                    return new DocumentViews(null, null, 0);
+                                }
+                        
+                                return new DocumentViews(list.GetDateFirst(),
+                                    list.GetDateLast(), list.Sum(a =&gt; a.Views));
+                            }
+                        
+                            //[NodeResolver]
+                            //public static async Task&lt;Document&gt; GetDocumentByIdAsync(
+                            //[ID] int id,
+                            //[Service] AppDbContext context,
+                            //CancellationToken cancellationToken)
+                            //{
+                            //    return await context.Documents.FirstOrDefaultAsync(t =&gt; t.Id == id, cancellationToken);
+                            //}
+                        }
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </section>
+    <!-- <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/160.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section> -->
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 21px !important;">
+                        using Microsoft.EntityFrameworkCore;
+                        using System.Net.Http.Headers;
+                        
+                        var builder = WebApplication.CreateBuilder(args);
+                        
+                        // Add services to the container
+                        builder.Services.AddDbContextFactory&lt;AppDbContext&gt;(options =&gt;
+                            options.UseSqlite(builder.Configuration.GetConnectionString(&quot;DefaultConnection&quot;)));
+                        
+                        builder.Services.AddHttpClient(&quot;documentViews&quot;, client =&gt;
+                        {
+                            client.BaseAddress = new Uri(&quot;https://localhost:2222&quot;);
+                            client.DefaultRequestHeaders.Accept.Clear();
+                            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(&quot;application/json&quot;));
+                        });
+                        
+                        
+                        // Register GraphQL services
+                        builder.Services
+                            .AddGraphQLServer()
+                            .AddProjections()
+                            .AddSorting()
+                            .AddFiltering()
+                            .AddTypeExtension&lt;DocumentViewsExtendObjecType&gt;()
+                            .AddType&lt;DocumentType&gt;()
+                            .AddTypes(typeof(Query))
+                            .RegisterDbContextFactory&lt;AppDbContext&gt;();
+                        
+                        var app = builder.Build();
+                        
+                        app.MapGraphQL();
+                        
+                        app.Run();
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </section>
+    <!-- <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/161.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section> -->
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/162.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/163.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/164.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/165.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/166.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/167.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/168.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/169.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/170.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/171.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/172.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/173.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/174.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/175.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 21px !important;">
+                        endpoints.MapGet(&quot;/span/{timeFrameS:regex(^(week|month|threemonths)$)}&quot;,
+                        async (string timeFrameS, IDocumentViewService service) =&gt;
+                        {
+                            if (!Enum.TryParse&lt;TimeFrame&gt;(timeFrameS, true, out var timeFrame))
+                            {
+                                return Results.BadRequest
+                                (&quot;Invalid time frame. Please use &#39;threemonths&#39;, &#39;week&#39;, or &#39;month&#39;.&quot;);
+                            }
+                            var result = await service.GetDocumentsViewsOverTimeAsync(timeFrame);
+                            return Results.Ok(result);
+                        });
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </section>
+    <!-- <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/176.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section> -->
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 21px !important;">
+                        public class ViewsByKeyDataLoader : BatchDataLoader&lt;KeyAndSpan, DocumentViews&gt;
+                        {
+                            private readonly IHttpClientFactory _clientFactory;
+                        
+                            public ViewsByKeyDataLoader(
+                                IBatchScheduler batchScheduler,
+                                IHttpClientFactory clientFactory,
+                                DataLoaderOptions? options = null)
+                                : base(batchScheduler, options)
+                            {
+                                _clientFactory = clientFactory;
+                            }
+                        
+                            private int NumberOfRequests { get; set; }
+                        
+                            protected override async Task&lt;IReadOnlyDictionary&lt;KeyAndSpan, DocumentViews&gt;&gt; LoadBatchAsync(
+                                IReadOnlyList&lt;KeyAndSpan&gt; keysAndSpans,
+                                CancellationToken cancellationToken)
+                            {
+                                NumberOfRequests++;
+                        
+                                using HttpClient client = _clientFactory.CreateClient(&quot;documentViews&quot;);
+                        
+                                var map = new Dictionary&lt;KeyAndSpan, DocumentViews&gt;();
+                        
+                                foreach (var group in keysAndSpans.GroupBy(k =&gt; k.Span))
+                                {
+                                    // Prepare the request for the current span.
+                                    using var message = new HttpRequestMessage(
+                                        HttpMethod.Get, $&quot;/views/span/{group.Key.ToString().ToLower()}&quot;);
+                        
+                                    using var response = await client.SendAsync(message, cancellationToken);
+                                    response.EnsureSuccessStatusCode();
+                        
+                                    var content = await response.Content.ReadAsByteArrayAsync(cancellationToken);
+                                    using var json = JsonDocument.Parse(content);
+                        
+                                    var options = new JsonSerializerOptions
+                                    {
+                                        PropertyNameCaseInsensitive = true
+                                    };
+                        
+                                    var list = json.Deserialize&lt;List&lt;DocumentViewRecord&gt;&gt;(options);
+                        
+                                    foreach (var recordGroup in list.GroupBy(r =&gt; r.DocumentId))
+                                    {
+                                        var sublist = recordGroup.ToList();
+                        
+                                        var documentViews = new DocumentViews(
+                                            sublist.GetDateFirst(),
+                                            sublist.GetDateLast(),
+                                            sublist.Sum(a =&gt; a.Views));
+                        
+                                        var key = new KeyAndSpan(recordGroup.Key, group.Key);
+                                        map.Add(key, documentViews);
+                                    }
+                                }
+                        
+                                return map;
+                            }
+                        }
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </section>
+     <!-- <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/177.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>  -->
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/178.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/179.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/180.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/181.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/182.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/183.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 21px !important;">
+                        //This will create TestDataLoader
+                        [DataLoader(name: &quot;Test&quot;)]
+                        public static async Task&lt;Dictionary&lt;int, string&gt;&gt; GetTestIdAsync(
+                        IReadOnlyList&lt;int&gt; ids,
+                        CancellationToken ct)
+                        =&gt; new Dictionary&lt;int, string&gt;() { { 1, &quot;1&quot; } };
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </section>
+    <!-- <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/184.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section> -->
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 21px !important;">
+                        [ExtendObjectType(typeof(Document))]
+                        public class DocumentViewsExtendObjecType
+                        {
+                        
+                            public static async Task&lt;DocumentViews&gt; GetViewChange(ChangeSpan span,
+                             [Parent] Document parent,
+                             ViewsByKeyFrom_Hotchocolate_Types_Analyzers_DataLoader loader,
+                             CancellationToken cancellationToken)
+                            {
+                                return await loader.LoadAsync(new KeyAndSpan(parent.Id, span), cancellationToken);
+                            }
+                        
+                        
+                            [DataLoader(name: &quot;ViewsByKeyFrom_Hotchocolate_Types_Analyzers_&quot;)]
+                            public static async Task&lt;IReadOnlyDictionary&lt;KeyAndSpan, DocumentViews&gt;&gt; GetViewsByKey(
+                                IReadOnlyList&lt;KeyAndSpan&gt; keysAndSpans,
+                                [Service] IHttpClientFactory clientFactory,
+                                CancellationToken cancellationToken)
+                            {
+                        
+                                using HttpClient client = clientFactory.CreateClient(&quot;documentViews&quot;);
+                                var map = new Dictionary&lt;KeyAndSpan, DocumentViews&gt;();
+                        
+                                foreach (var span in keysAndSpans.GroupBy(t =&gt; t.Span))
+                                {
+                                    using var message = new HttpRequestMessage
+                                         (HttpMethod.Get, $&quot;/views/span/{span.Key.ToString().ToLower()}&quot;);
+                        
+                                    using var response = await client.SendAsync(message, cancellationToken);
+                                    response.EnsureSuccessStatusCode();
+                        
+                                    var content = await response.Content.ReadAsByteArrayAsync(cancellationToken);
+                                    var json = JsonDocument.Parse(content);
+                        
+                                    var options = new JsonSerializerOptions
+                                    {
+                                        PropertyNameCaseInsensitive = true
+                                    };
+                        
+                                    var list = json.Deserialize&lt;List&lt;DocumentViewRecord&gt;&gt;(options);
+                        
+                                    foreach (var recordByDocumentId in list.GroupBy(a =&gt; a.DocumentId))
+                                    {
+                                        var sublist = recordByDocumentId.Select(a =&gt; a).ToList();
+                        
+                                        var documentViews = new DocumentViews(sublist.GetDateFirst(),
+                                            sublist.GetDateLast(), sublist.Sum(a =&gt; a.Views));
+                                        var keyAndSpan = new KeyAndSpan(recordByDocumentId.Key, span.Key);
+                        
+                                        map.Add(keyAndSpan, documentViews);
+                                    }
+                                }
+                        
+                                return map;
+                            }
+                        
+                            //This will create TestDataLoader
+                            [DataLoader(name: &quot;Test&quot;)]
+                            public static async Task&lt;Dictionary&lt;int, string&gt;&gt; GetTestIdAsync(
+                            IReadOnlyList&lt;int&gt; ids,
+                            CancellationToken ct)
+                            =&gt; new Dictionary&lt;int, string&gt;() { { 1, &quot;1&quot; } };
+                        }
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </section>
+    <!-- <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/185.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section> -->
+
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 21px !important;">
+                        [assembly: DataLoaderDefaults(
+                            AccessModifier = DataLoaderAccessModifier.Public,
+                            ServiceScope = DataLoaderServiceScope.Default)]
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </section>
+    <!-- <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/186.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section> -->
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/187.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/188.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/189.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/190.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/191.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/192.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/193.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/194.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/195.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/196.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/197.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/198.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/199.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/200.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 21px !important;">
+                        public class GlobalStateUserNameAttribute : GlobalStateAttribute
+                        {
+                            public GlobalStateUserNameAttribute() : base("UserName")
+                            {
+                            }
+                        }
+                        
+                        public class GlobalStatePasswordAttribute : GlobalStateAttribute
+                        {
+                            public GlobalStatePasswordAttribute() : base("Password")
+                            {
+                            }
+                        }
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </section>
+    <!-- <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/201.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section> -->
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 21px !important;">
+                        public class HttpRequestInterceptor : DefaultHttpRequestInterceptor
+                        {
+                            public override ValueTask OnCreateAsync(HttpContext context,
+                                IRequestExecutor requestExecutor,
+                                OperationRequestBuilder requestBuilder,
+                                CancellationToken cancellationToken)
+                            {
+                                // Retrieve the Authorization header
+                                if (context.Request.Headers.TryGetValue(&quot;Authorization&quot;, out var authHeader))
+                                {
+                                    // Check if the header starts with &quot;Basic &quot;
+                                    if (authHeader.ToString().StartsWith(&quot;Basic &quot;, StringComparison.OrdinalIgnoreCase))
+                                    {
+                                        // Extract the Base64-encoded credentials
+                                        var encodedCredentials = authHeader.ToString().Substring(&quot;Basic &quot;.Length).Trim();
+                        
+                                        // Decode the Base64 string
+                                        var credentialBytes = Convert.FromBase64String(encodedCredentials);
+                                        var credentials = Encoding.UTF8.GetString(credentialBytes).Split(&#39;:&#39;, 2);
+                        
+                                        if (credentials.Length == 2)
+                                        {
+                                            var username = credentials[0];
+                                            var password = credentials[1];
+                        
+                                            // Store the username as global state so that resolvers can access it
+                                            requestBuilder.AddGlobalState(&quot;UserName&quot;, username);
+                                            requestBuilder.AddGlobalState(&quot;Password&quot;, password);
+                                        }
+                                    }
+                                }
+                        
+                                return base.OnCreateAsync(context, requestExecutor, requestBuilder, cancellationToken);
+                            }
+                        }
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </section>
+    <!-- <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/202.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section> -->
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/203.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/204.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 21px !important;">
+                        public class Mutation
+                        {
+                            [Error&lt;NotAuthenticatedException&gt;]
+                            [Error&lt;DocumentDoesntExist&gt;]
+                            [Error&lt;UserDoesNotExistException&gt;]
+                            [Error&lt;WrongPasswordException&gt;]
+                            [UseMutationConvention]
+                            public async Task&lt;Watchlist&gt; AddDocumentToWatchlistAsync(
+                                [Service] WatchlistRepository repository,
+                                int documentId,
+                                [GlobalStateUserName] string? userName,
+                                [GlobalStatePassword] string? password,
+                                CancellationToken cancellationToken)
+                            {
+                                int userId = CheckUser(userName, password);
+                                return await repository.AddDocumentToWatchlistAsync(documentId, userId, cancellationToken);
+                            }
+                        
+                            [Error&lt;NotAuthenticatedException&gt;]
+                            [Error&lt;DocumentDoesntExist&gt;]
+                            [Error&lt;UserDoesNotExistException&gt;]
+                            [Error&lt;WatchlistItemDoesNotExistException&gt;]
+                            [Error&lt;WrongPasswordException&gt;]
+                            [UseMutationConvention]
+                            public async Task&lt;bool&gt; RemoveDocumentFromWatchlistAsync(
+                                [Service] WatchlistRepository repository,
+                                int documentId,
+                                [GlobalStateUserName] string? userName,
+                                [GlobalStatePassword] string? password,
+                                CancellationToken cancellationToken)
+                            {
+                                int userId = CheckUser(userName, password);
+                                return await repository.RemoveDocumentFromWatchlistAsync(documentId, userId, cancellationToken);
+                            }
+                        
+                            private int CheckUser(string? userName, string? password)
+                            {
+                                if (string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(password))
+                                {
+                                    throw new NotAuthenticatedException();
+                                }
+                        
+                                if (password != &quot;password&quot;)
+                                {
+                                    throw new WrongPasswordException();
+                                }
+                        
+                                var userId = Users.GetId(userName.ToLower());
+                        
+                                if (userId is null)
+                                {
+                                    throw new UserDoesNotExistException();
+                                }
+                        
+                                return userId.Value;
+                            }
+                        
+                        }
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </section>
+    <!-- <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/205.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section> -->
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 21px !important;">
+                        public class WatchlistRepository
+                        {
+                            private readonly AppDbContext _dbContext;
+                        
+                            public WatchlistRepository(AppDbContext dbContext)
+                            {
+                                _dbContext = dbContext;
+                            }
+                        
+                            public async Task&lt;Watchlist&gt; AddDocumentToWatchlistAsync(
+                                int documentId, int userId, CancellationToken cancellationToken)
+                            {
+                                if (!await _dbContext.Documents.AnyAsync(d =&gt; d.Id == documentId, cancellationToken))
+                                {
+                                    throw new DocumentDoesntExist();
+                                }
+                        
+                                // Check if the document is already in the watchlist for this user
+                                var existingWatchlist = await _dbContext.Watchlists
+                                    .FirstOrDefaultAsync(w =&gt; w.DocumentId == documentId &amp;&amp; w.UserId == userId, cancellationToken);
+                        
+                                if (existingWatchlist != null)
+                                {
+                                    return existingWatchlist; // Already in watchlist, return existing
+                                }
+                        
+                                var watchlist = new Watchlist
+                                {
+                                    DocumentId = documentId,
+                                    UserId = userId,
+                                };
+                        
+                                _dbContext.Watchlists.Add(watchlist);
+                                await _dbContext.SaveChangesAsync(cancellationToken);
+                                return watchlist;
+                            }
+                        
+                            public async Task&lt;bool&gt; RemoveDocumentFromWatchlistAsync(
+                                int documentId, int userId, CancellationToken cancellationToken)
+                            {
+                                if (!await _dbContext.Documents.AnyAsync(d =&gt; d.Id == documentId, cancellationToken))
+                                {
+                                    throw new DocumentDoesntExist();
+                                }
+                        
+                                var watchlistItem = await _dbContext.Watchlists
+                                    .FirstOrDefaultAsync(w =&gt; w.DocumentId == documentId &amp;&amp; w.UserId == userId, cancellationToken);
+                        
+                                if (watchlistItem == null)
+                                {
+                                    throw new WatchlistItemDoesNotExistException();
+                                }
+                        
+                                _dbContext.Watchlists.Remove(watchlistItem);
+                                await _dbContext.SaveChangesAsync(cancellationToken);
+                        
+                                return true;
+                            }
+                        
+                        }
+                        
+                        // Updated exception classes with consistent naming
+                        public class NotAuthenticatedException : Exception
+                        {
+                            public NotAuthenticatedException() : base(&quot;User is not authenticated&quot;) { }
+                        }
+                        
+                        public class WrongPasswordException : Exception
+                        {
+                            public WrongPasswordException() : base(&quot;Wrong password&quot;) { }
+                        }
+                        
+                        public class UserDoesNotExistException : Exception
+                        {
+                            public UserDoesNotExistException() : base(&quot;User does not exist&quot;) { }
+                        }
+                        
+                        public class DocumentDoesntExist : Exception
+                        {
+                            public DocumentDoesntExist() : base(&quot;Document does not exist&quot;) { }
+                        }
+                        
+                        public class WatchlistItemDoesNotExistException : Exception
+                        {
+                            public WatchlistItemDoesNotExistException() : base(&quot;Watchlist item does not exist&quot;) { }
+                        }
+                        
+                        public static class Users
+                        {
+                            public static int? GetId(string name)
+                            {
+                                return name switch
+                                {
+                                    &quot;cezary&quot; =&gt; 1,
+                                    &quot;john&quot; =&gt; 2,
+                                    _ =&gt; null
+                                };
+                            }
+                        }
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </section>
+    <!-- <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/206.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section> -->
+    <!-- <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/207.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section> -->
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/208.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/209.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/210.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/211.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/212.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/213.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/214.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/215.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/216.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 21px !important;">
+                        [ExtendObjectType(typeof(Mutation))]
+                        public class QuestionMutations
+                        {
+                            [UseMutationConvention]
+                            public async Task&lt;bool&gt; SendQuestionAboutDocumentAsync(
+                                QuestionToLLMAboutDocument question,
+                                  [Service] ITopicEventSender eventSender,
+                                CancellationToken cancellationToken)
+                            {
+                                await eventSender.SendAsync(&quot;questions&quot;, question);
+                                return true;
+                            }
+                        }
+
+                        public class QuestionToLLMAboutDocument
+                        {
+                            public QuestionToLLMAboutDocument(int documentId, string question)
+                            {
+                                DocumentId = documentId;
+                                Question = question;
+                            }
+
+                            public int DocumentId { get; set; }
+                            public string Question { get; set; }
+                        }
+
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </section>
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 21px !important;">
+                        public class DocumentSubscriptions
+                        {
+                            [Topic(&quot;questions&quot;)]
+                            [Subscribe]
+                            public LLMAnswer OnReciveQuestion(
+                                [EventMessage] QuestionToLLMAboutDocument question)
+                            {
+                                return new LLMAnswer(&quot;ANSWER&quot;, question.Question, question.DocumentId);
+                            }
+                        
+                        }
+
+                        public class LLMAnswer
+                        {
+                            public LLMAnswer(string answer, string question, int documentId)
+                            {
+                                Answer = answer;
+                                Question = question;
+                                DocumentId = documentId;
+                            }
+
+                            public string Answer { get; set; }
+                            public string Question { get; set; }
+                            public int DocumentId { get; set; }
+                        }
+
+                        public class LLMAnswerType : ObjectType&lt;LLMAnswer&gt;
+                        {
+                            protected override void Configure(IObjectTypeDescriptor&lt;LLMAnswer&gt; descriptor)
+                            {
+                                descriptor.Field(t =&gt; t.Answer).Description(&quot;The answer to the question&quot;);
+                                descriptor.Field(t =&gt; t.Question).Description(&quot;The question&quot;);
+                                descriptor.Field(t =&gt; t.DocumentId).Description(&quot;The document ID&quot;);
+                            }
+                        }
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </section>
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 21px !important;">
+                        builder.Services
+                            .AddGraphQLServer()
+                            .AddProjections()
+                            .AddSorting()
+                            .AddFiltering()
+                            .AddHttpRequestInterceptor&lt;HttpRequestInterceptor&gt;()
+                            .AddTypeExtension&lt;DocumentViewsExtendObjecType&gt;()
+                            .AddType&lt;DocumentType&gt;()
+                            .AddMutationType&lt;Mutation&gt;()
+                            .AddTypeExtension&lt;QuestionMutations&gt;()
+                            .AddSubscriptionType&lt;DocumentSubscriptions&gt;()
+                            .AddQueryType&lt;Query&gt;()
+                            .AddMutationConventions()
+                            .AddInMemorySubscriptions()
+                            .RegisterDbContextFactory&lt;AppDbContext&gt;();
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 21px !important;">
+                        public class BackgroundServiceDocumentTaskPublisher : BackgroundService
+                        {
+                            private readonly IServiceScopeFactory _scopeFactory;
+                            private readonly ITopicEventSender _eventSender;
+                            private readonly Random _random = new Random();
+                            private readonly string[] _taskTypes = new[]
+                            {
+                                &quot;Review&quot;,
+                                &quot;Analyze&quot;,
+                                &quot;Approve&quot;,
+                                &quot;Reject&quot;,
+                                &quot;Archive&quot;,
+                                &quot;Share&quot;,
+                                &quot;Update&quot;,
+                                &quot;Translate&quot;
+                            };
+                        
+                            public BackgroundServiceDocumentTaskPublisher(IServiceScopeFactory scopeFactory, ITopicEventSender eventSender)
+                            {
+                                _scopeFactory = scopeFactory ?? throw new ArgumentNullException(nameof(scopeFactory));
+                                _eventSender = eventSender ?? throw new ArgumentNullException(nameof(eventSender));
+                            }
+                        
+                            protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+                            {
+                                while (!stoppingToken.IsCancellationRequested)
+                                {
+                                    try
+                                    {
+                                        // Create a new scope for each operation
+                                        using (var scope = _scopeFactory.CreateScope())
+                                        {
+                                            // Get the dbContext from the scope
+                                            var dbContext = scope.ServiceProvider.GetRequiredService&lt;AppDbContext&gt;();
+                        
+                                            // Get document IDs from the database
+                                            var documentIds = await dbContext.Documents
+                                                .Select(d =&gt; d.Id)
+                                                .ToListAsync(stoppingToken);
+                        
+                                            if (documentIds.Any())
+                                            {
+                                                // Choose a random document ID
+                                                int randomDocumentId = documentIds[_random.Next(documentIds.Count)];
+                        
+                                                // Create a random task
+                                                string randomTask = _taskTypes[_random.Next(_taskTypes.Length)];
+                        
+                                                // Create a new document task
+                                                var documentTask = new DocumentTask(randomDocumentId, randomTask);
+                        
+                                                // Send the task to the topic
+                                                await _eventSender.SendAsync(&quot;DocumentTasked&quot;, documentTask, stoppingToken);
+                        
+                                                Console.WriteLine($&quot;Published task: {randomTask} for document ID: {randomDocumentId}&quot;);
+                                            }
+                                            else
+                                            {
+                                                Console.WriteLine(&quot;No documents found in the database.&quot;);
+                                            }
+                                        }
+                        
+                                        // Wait for some time before publishing the next task
+                                        // Random interval between 1 and 4 seconds
+                                        int delaySeconds = _random.Next(1, 4);
+                                        await Task.Delay(TimeSpan.FromSeconds(delaySeconds), stoppingToken);
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        Console.WriteLine($&quot;Error in DocumentTaskPublisher: {ex.Message}&quot;);
+                        
+                                        // Wait before retrying
+                                        await Task.Delay(TimeSpan.FromSeconds(30), stoppingToken);
+                                    }
+                                }
+                            }
+                        }
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </section>
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 21px !important;">
+                        public class DocumentSubscriptions
+                        {
+                            [Subscribe(With = nameof(OnDocumentTaskAsync))]
+                            public RecivedDocumentTask OnDocumentCreateTask(
+                                [EventMessage] DocumentTask documentTask,
+                                CancellationToken ct)
+                            {
+                                return new RecivedDocumentTask(documentTask.DocumentId,
+                                    documentTask.Task,
+                                    TimeOnly.FromDateTime(DateTime.Now));
+                            }
+                        
+                            public static async IAsyncEnumerable&lt;DocumentTask&gt; OnDocumentTaskAsync(
+                                [Service] AppDbContext dbContext,
+                                [Service] ITopicEventReceiver eventReceiver,
+                                [EnumeratorCancellation] CancellationToken ct)
+                            {
+                                // Subscribe to the correct topic that matches where DocumentTask objects are published
+                                ISourceStream&lt;DocumentTask&gt; sourceStream = await eventReceiver.SubscribeAsync&lt;DocumentTask&gt;(
+                                    &quot;DocumentTasked&quot;,
+                                    ct);
+                        
+                                // Read events from the stream and yield them to subscribers
+                                await foreach (DocumentTask item in sourceStream.ReadEventsAsync().WithCancellation(ct))
+                                {
+                                    if (item != null &amp;&amp; !string.IsNullOrEmpty(item.Task) &amp;&amp; item.DocumentId &gt; 0)
+                                    {
+                                        yield return item;
+                                    }
+                                }
+                            }
+                        }
+                        
+                        public class RecivedDocumentTaskType : ObjectType&lt;RecivedDocumentTask&gt;
+                        {
+                            protected override void Configure(IObjectTypeDescriptor&lt;RecivedDocumentTask&gt; descriptor)
+                            {
+                                descriptor.Field(t =&gt; t.DocumentId).Description(&quot;The document ID&quot;);
+                                descriptor.Field(t =&gt; t.Task).Description(&quot;The task&quot;);
+                                descriptor.Field(t =&gt; t.Time).Description(&quot;The time the task was created&quot;);
+                        
+                            }
+                        }
+                        
+                        public class RecivedDocumentTask
+                        {
+                            public RecivedDocumentTask(int documentId, string task, TimeOnly time)
+                            {
+                                DocumentId = documentId;
+                                Task = task;
+                                Time = time;
+                            }
+                            public int DocumentId { get; set; }
+                            public string Task { get; set; }
+                            public TimeOnly Time { get; set; }
+                        }
+                        
+                        public class DocumentTask
+                        {
+                            public DocumentTask(int documentId, string task)
+                            {
+                                DocumentId = documentId;
+                                Task = task;
+                            }
+                        
+                            public int DocumentId { get; set; }
+                            public string Task { get; set; }
+                        }
+                        
+                        
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/217.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/218.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/GIF/HowDeferAndStreamWorks.gif" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <!-- <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/219.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section> -->
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/220.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 21px !important;">
+                        public class Product
+                        {
+                            public int Id { get; set; }
+                            public string Name { get; set; }
+                            public decimal Price { get; set; }
+                            public string Description { get; set; }
+                            // Details and Reviews are no longer populated in the query resolver
+                            // but resolved on-demand via field resolvers.
+                            public ProductDetails Details { get; set; }
+                            public List&lt;Review&gt; Reviews { get; set; }
+                        }
+                        
+                        public class ProductDetails
+                        {
+                            public string Manufacturer { get; set; }
+                            public DateTime ManufactureDate { get; set; }
+                            public string CountryOfOrigin { get; set; }
+                            public string MaterialInfo { get; set; }
+                            public string Dimensions { get; set; }
+                            public string TechnicalSpecifications { get; set; }
+                        }
+                        
+                        public class Review
+                        {
+                            public int Id { get; set; }
+                            public string AuthorName { get; set; }
+                            public int Rating { get; set; }
+                            public string Comment { get; set; }
+                            public DateTime CreatedAt { get; set; }
+                        }
+                        
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </section>
+    <!-- <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/221.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section> -->
+    <!-- <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/222.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section> -->
+    <!-- <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/223.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section> -->
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 21px !important;">
+                        // GraphQL Schema Types
+                        public class ProductType : ObjectType&lt;Product&gt;
+                        {
+                            protected override void Configure(IObjectTypeDescriptor&lt;Product&gt; descriptor)
+                            {
+                                descriptor.Field(p =&gt; p.Id)
+                                    .Type&lt;NonNullType&lt;IntType&gt;&gt;();
+                                descriptor.Field(p =&gt; p.Name)
+                                    .Type&lt;NonNullType&lt;StringType&gt;&gt;();
+                                descriptor.Field(p =&gt; p.Price)
+                                    .Type&lt;NonNullType&lt;DecimalType&gt;&gt;();
+                                descriptor.Field(p =&gt; p.Description)
+                                    .Type&lt;StringType&gt;();
+                        
+                                // Use separate resolvers for Details and Reviews so that
+                                // they can be deferred or streamed.
+                                descriptor.Field(&quot;details&quot;)
+                                    .ResolveWith&lt;ProductResolvers&gt;(r =&gt; r.GetDetails(default))
+                                    .Type&lt;ProductDetailsType&gt;();
+                                descriptor.Field(&quot;reviews&quot;)
+                                    .ResolveWith&lt;ProductResolvers&gt;(r =&gt; r.GetReviews(default))
+                                    .Type&lt;ListType&lt;ReviewType&gt;&gt;();
+                            }
+                        }
+                        
+                        
+                        public class ProductDetailsType : ObjectType&lt;ProductDetails&gt;
+                        {
+                            protected override void Configure(IObjectTypeDescriptor&lt;ProductDetails&gt; descriptor)
+                            {
+                                descriptor.Field(d =&gt; d.Manufacturer).Type&lt;StringType&gt;();
+                                descriptor.Field(d =&gt; d.ManufactureDate).Type&lt;DateTimeType&gt;();
+                                descriptor.Field(d =&gt; d.CountryOfOrigin).Type&lt;StringType&gt;();
+                                descriptor.Field(d =&gt; d.MaterialInfo).Type&lt;StringType&gt;();
+                                descriptor.Field(d =&gt; d.Dimensions).Type&lt;StringType&gt;();
+                                descriptor.Field(d =&gt; d.TechnicalSpecifications).Type&lt;StringType&gt;();
+                            }
+                        }
+                        
+                        
+                        public class ReviewType : ObjectType&lt;Review&gt;
+                        {
+                            protected override void Configure(IObjectTypeDescriptor&lt;Review&gt; descriptor)
+                            {
+                                descriptor.Field(r =&gt; r.Id).Type&lt;NonNullType&lt;IntType&gt;&gt;();
+                                descriptor.Field(r =&gt; r.AuthorName).Type&lt;NonNullType&lt;StringType&gt;&gt;();
+                                descriptor.Field(r =&gt; r.Rating).Type&lt;NonNullType&lt;IntType&gt;&gt;();
+                                descriptor.Field(r =&gt; r.Comment).Type&lt;StringType&gt;();
+                                descriptor.Field(r =&gt; r.CreatedAt).Type&lt;NonNullType&lt;DateTimeType&gt;&gt;();
+                            }
+                        }
+                        
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </section>
+    <!-- <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/224.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/225.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/226.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section> -->
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 21px !important;">
+                        // Field resolvers for deferred and streamed fields.
+                        public class ProductResolvers
+                        {
+                            // Simulate slow database access for details (e.g. 14 seconds delay)
+                            public async Task&lt;ProductDetails&gt; GetDetails([Parent] Product product)
+                            {
+                                await Task.Delay(14000);
+                                return new ProductDetails
+                                {
+                                    Manufacturer = &quot;TechCorp&quot;,
+                                    ManufactureDate = new DateTime(2024, 3, 15),
+                                    CountryOfOrigin = &quot;Japan&quot;,
+                                    MaterialInfo = &quot;Aluminum and glass&quot;,
+                                    Dimensions = &quot;6.1 x 2.8 x 0.3 inches&quot;,
+                                    TechnicalSpecifications = &quot;CPU: 3.2 GHz, RAM: 8GB, Storage: 256GB&quot;
+                                };
+                            }
+                        
+                            // Simulate streaming reviews with a 2s delay for each review.
+                            public async IAsyncEnumerable&lt;Review&gt; GetReviews([Parent] Product product)
+                            {
+                                var reviews = new List&lt;Review&gt;
+                                    {
+                                        new Review { Id = 1, AuthorName = &quot;Alice&quot;, Rating = 5, Comment = &quot;Excellent product!&quot;, CreatedAt = DateTime.Now.AddDays(-5) },
+                                        new Review { Id = 2, AuthorName = &quot;Bob&quot;, Rating = 4, Comment = &quot;Good value for money&quot;, CreatedAt = DateTime.Now.AddDays(-10) },
+                                        new Review { Id = 3, AuthorName = &quot;Charlie&quot;, Rating = 3, Comment = &quot;Average performance&quot;, CreatedAt = DateTime.Now.AddDays(-15) },
+                                        new Review { Id = 4, AuthorName = &quot;David&quot;, Rating = 5, Comment = &quot;Exceeded expectations&quot;, CreatedAt = DateTime.Now.AddDays(-20) },
+                                        new Review { Id = 5, AuthorName = &quot;Eve&quot;, Rating = 2, Comment = &quot;Not worth the price&quot;, CreatedAt = DateTime.Now.AddDays(-25) }
+                                    };
+                        
+                                foreach (var review in reviews)
+                                {
+                                    await Task.Delay(2000);
+                                    yield return review;
+                                }
+                            }
+                        }
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </section>
+    <!-- <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/227.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section> -->
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 21px !important;">
+                        public class Query
+                        {
+                            // The product field takes an id argument.
+                            public Product GetProduct(int id)
+                            {
+                                return new Product
+                                {
+                                    Id = id,
+                                    Name = &quot;SmartPhone X&quot;,
+                                    Price = 999.99m,
+                                    Description = &quot;Latest smartphone with cutting-edge features&quot;
+                                    // Details and Reviews are intentionally not populated here.
+                                };
+                            }
+                        }
+                        
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </section>
+    <!-- <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/228.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section> -->
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/screen/01.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section> 
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 21px !important;">
+                        var builder = WebApplication.CreateBuilder(args);
+
+                        // Register GraphQL services
+                        builder.Services.AddGraphQLServer()
+                            .ModifyOptions(o =&gt;
+                            {
+                                o.EnableDefer = true;
+                                o.EnableStream = true;
+                            }).AddQueryType&lt;Query&gt;()
+                                    .AddType&lt;ProductType&gt;()
+                                    .AddType&lt;ProductDetailsType&gt;()
+                                    .AddType&lt;ReviewType&gt;();
+                        
+                        var app = builder.Build();
+                        
+                        app.MapGraphQL();
+                        app.MapGet(&quot;/&quot;, () =&gt;
+                        { return Results.Redirect($&quot;/graphql&quot;, permanent: true); });
+                        app.Run();
+                        
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </section>
+    <!-- <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/229.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>  -->
+
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/230.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 21px !important;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        using _9GraphQLDemoOfDeferAndStream.QueriesAndTypes;
+                        using _9GraphQLDemoOfDeferAndStream.QueriesAndTypes.ObjectType;
+                        using HotChocolate;
+                        using HotChocolate.Execution;
+                        using Microsoft.Extensions.DependencyInjection;
+                        using System.Text.Json;
+                        
+                        var services = new ServiceCollection();
+                        
+                        services.AddSingleton&lt;ProductResolvers&gt;();
+                        
+                        services.AddGraphQLServer()
+                            .ModifyOptions(o =&gt;
+                            {
+                                o.EnableDefer = true;
+                                o.EnableStream = true;
+                            }).AddQueryType&lt;Query&gt;()
+                                    .AddType&lt;ProductType&gt;()
+                                    .AddType&lt;ProductDetailsType&gt;()
+                                    .AddType&lt;ReviewType&gt;();
+                        
+                        
+                        var serviceProvider = services.BuildServiceProvider();
+                        
+                        var executorResolver = serviceProvider.GetRequiredService&lt;IRequestExecutorResolver&gt;();
+                        var executor = await executorResolver.GetRequestExecutorAsync();
+                        
+                        Console.ReadLine();
+                        
+                        Console.WriteLine(&quot;Running GraphQL query with @defer and @stream...&quot;);
+                        
+                        //Client query: the @defer directive tells the server to return the &#39;details&#39;
+                        // field later, and the @stream directive streams each review as it becomes available.
+                        var query = @&quot;
+                        query GetProduct {
+                          product(id: 1) {
+                            id
+                            name
+                            price
+                            description
+                            ...DeferredDetails @defer
+                            reviews @stream {
+                              id
+                              authorName
+                              rating
+                              comment
+                              createdAt
+                            }
+                          }
+                        }
+                        
+                        fragment DeferredDetails on Product {
+                          details {
+                            manufacturer
+                            manufactureDate
+                            countryOfOrigin
+                            materialInfo
+                            dimensions
+                            technicalSpecifications
+                          }
+                        }
+                        &quot;;
+                        
+                        var finalResult = new Dictionary&lt;string, object&gt;();
+                        
+                        var result = await executor.ExecuteAsync(query);
+                        
+                        if (result is IResponseStream responseStream)
+                        {
+                            await foreach (var incrementalResult in responseStream.ReadResultsAsync())
+                            {
+                                Console.WriteLine($&quot;Received update at {DateTime.Now:HH:mm:ss}&quot;);
+                        
+                                var json = incrementalResult.ToJson();
+                                Console.WriteLine(json);
+                        
+                                UpdateFinalJson(finalResult, json);
+                            }
+                        
+                            WriteFinalJson(finalResult);
+                        }
+                        else
+                        {
+                            // In case the result isn&#39;t incremental, just output the full JSON.
+                            Console.WriteLine();
+                        }
+                        
+                        Console.WriteLine(&quot;\nQuery execution completed.&quot;);
+                        
+                        
+                        void UpdateFinalJson(Dictionary&lt;string, object&gt; finalResult, string json)
+                        {
+                            using (var doc = JsonDocument.Parse(json))
+                            {
+                                var root = doc.RootElement;
+                        
+                                // Merge the top-level &quot;data&quot; object into finalResult.
+                                if (root.TryGetProperty(&quot;data&quot;, out var dataProp))
+                                {
+                                    var dataObj = JsonElementToObject(dataProp) as Dictionary&lt;string, object&gt;;
+                                    if (!finalResult.ContainsKey(&quot;data&quot;))
+                                    {
+                                        finalResult[&quot;data&quot;] = dataObj;
+                                    }
+                                    else
+                                    {
+                                        MergeDictionaries(finalResult[&quot;data&quot;] as Dictionary&lt;string, object&gt;, dataObj);
+                                    }
+                                }
+                        
+                                // Process any incremental patch entries.
+                                if (root.TryGetProperty(&quot;incremental&quot;, out var incrementalProp) &amp;&amp; incrementalProp.ValueKind == JsonValueKind.Array)
+                                {
+                                    foreach (var inc in incrementalProp.EnumerateArray())
+                                    {
+                                        // Each patch has a &quot;path&quot; (an array of keys/indexes)
+                                        // and either &quot;data&quot; (an object patch) or &quot;items&quot; (for arrays).
+                                        ApplyIncrementalPatch(finalResult[&quot;data&quot;] as Dictionary&lt;string, object&gt;, inc);
+                                    }
+                                }
+                            }
+                        }
+                        
+                        static void WriteFinalJson(Dictionary&lt;string, object&gt; finalResult)
+                        {
+                            var finalJson = JsonSerializer.Serialize(finalResult, new JsonSerializerOptions { WriteIndented = true });
+                            Console.WriteLine(&quot;\n========Final Merged JSON=========\n&quot;);
+                            Console.WriteLine(finalJson);
+                        }
+                        
+                        /// &lt;summary&gt;
+                        /// Recursively merges dictionary source into target.
+                        /// &lt;/summary&gt;
+                        void MergeDictionaries(Dictionary&lt;string, object&gt; target, Dictionary&lt;string, object&gt; source)
+                        {
+                            foreach (var kv in source)
+                            {
+                                if (kv.Value is Dictionary&lt;string, object&gt; srcDict)
+                                {
+                                    if (target.TryGetValue(kv.Key, out var existing) &amp;&amp; existing is Dictionary&lt;string, object&gt; targetDict)
+                                    {
+                                        MergeDictionaries(targetDict, srcDict);
+                                    }
+                                    else
+                                    {
+                                        target[kv.Key] = srcDict;
+                                    }
+                                }
+                                else if (kv.Value is List&lt;object&gt; srcList)
+                                {
+                                    // For arrays, simply override (or you can merge element-by-element if needed)
+                                    target[kv.Key] = srcList;
+                                }
+                                else
+                                {
+                                    target[kv.Key] = kv.Value;
+                                }
+                            }
+                        }
+                        
+                        /// &lt;summary&gt;
+                        /// Applies an incremental patch (with a &quot;path&quot; and &quot;data&quot; or &quot;items&quot;) to the target dictionary.
+                        /// The patch path is relative to the &quot;data&quot; object.
+                        /// &lt;/summary&gt;
+                        void ApplyIncrementalPatch(Dictionary&lt;string, object&gt; target, JsonElement incremental)
+                        {
+                            if (!incremental.TryGetProperty(&quot;path&quot;, out var pathElement))
+                                return;
+                        
+                            var path = new List&lt;object&gt;();
+                            foreach (var item in pathElement.EnumerateArray())
+                            {
+                                if (item.ValueKind == JsonValueKind.Number &amp;&amp; item.TryGetInt32(out int index))
+                                {
+                                    path.Add(index);
+                                }
+                                else if (item.ValueKind == JsonValueKind.String)
+                                {
+                                    path.Add(item.GetString());
+                                }
+                            }
+                        
+                            if (incremental.TryGetProperty(&quot;data&quot;, out var dataElement) &amp;&amp; dataElement.ValueKind != JsonValueKind.Null)
+                            {
+                                MergeAtPath(target, path, dataElement);
+                            }
+                            else if (incremental.TryGetProperty(&quot;items&quot;, out var itemsElement) &amp;&amp; itemsElement.ValueKind == JsonValueKind.Array)
+                            {
+                                // Assume a single item in &quot;items&quot; array.
+                                var enumerator = itemsElement.EnumerateArray();
+                                if (enumerator.MoveNext())
+                                {
+                                    SetAtPath(target, path, enumerator.Current);
+                                }
+                            }
+                        }
+                        
+                        /// &lt;summary&gt;
+                        /// Recursively merges a JSON patch (patchData) into the object at the given path.
+                        /// &lt;/summary&gt;
+                        void MergeAtPath(object currentObj, List&lt;object&gt; path, JsonElement patchData)
+                        {
+                            // Base case: no more segments, merge patchData into currentObj if it is a dictionary.
+                            if (path.Count == 0)
+                            {
+                                if (currentObj is Dictionary&lt;string, object&gt; dict)
+                                {
+                                    foreach (var prop in patchData.EnumerateObject())
+                                    {
+                                        dict[prop.Name] = JsonElementToObject(prop.Value);
+                                    }
+                                }
+                                return;
+                            }
+                        
+                            var segment = path[0];
+                            path.RemoveAt(0);
+                        
+                            if (segment is string key)
+                            {
+                                if (currentObj is Dictionary&lt;string, object&gt; dict)
+                                {
+                                    if (!dict.TryGetValue(key, out var next))
+                                    {
+                                        // Look ahead: if the next segment is an int, create a list; else create a dictionary.
+                                        next = (path.Count &gt; 0 &amp;&amp; path[0] is int)
+                                            ? (object)new List&lt;object&gt;()
+                                            : new Dictionary&lt;string, object&gt;();
+                                        dict[key] = next;
+                                    }
+                                    MergeAtPath(next, path, patchData);
+                                }
+                                else
+                                {
+                                    throw new Exception(&quot;Expected a dictionary for a string path segment.&quot;);
+                                }
+                            }
+                            else if (segment is int index)
+                            {
+                                if (currentObj is List&lt;object&gt; list)
+                                {
+                                    // Ensure the list is large enough.
+                                    while (list.Count &lt;= index)
+                                    {
+                                        list.Add(null);
+                                    }
+                                    if (path.Count &gt; 0)
+                                    {
+                                        if (list[index] == null)
+                                        {
+                                            // Look ahead: if the next segment is an int, create a list; else a dictionary.
+                                            list[index] = (path[0] is int)
+                                                ? (object)new List&lt;object&gt;()
+                                                : new Dictionary&lt;string, object&gt;();
+                                        }
+                                        MergeAtPath(list[index], path, patchData);
+                                    }
+                                    else
+                                    {
+                                        // Final segment: assign the value.
+                                        list[index] = JsonElementToObject(patchData);
+                                    }
+                                }
+                                else
+                                {
+                                    throw new Exception(&quot;Expected a list at an integer path segment.&quot;);
+                                }
+                            }
+                        }
+                        
+                        /// &lt;summary&gt;
+                        /// Converts a JsonElement to a .NET object recursively (Dictionary, List, or primitive).
+                        /// &lt;/summary&gt;
+                        object JsonElementToObject(JsonElement element)
+                        {
+                            switch (element.ValueKind)
+                            {
+                                case JsonValueKind.Object:
+                                    var dict = new Dictionary&lt;string, object&gt;();
+                                    foreach (var prop in element.EnumerateObject())
+                                    {
+                                        dict[prop.Name] = JsonElementToObject(prop.Value);
+                                    }
+                                    return dict;
+                                case JsonValueKind.Array:
+                                    var list = new List&lt;object&gt;();
+                                    foreach (var item in element.EnumerateArray())
+                                    {
+                                        list.Add(JsonElementToObject(item));
+                                    }
+                                    return list;
+                                case JsonValueKind.String:
+                                    return element.GetString();
+                                case JsonValueKind.Number:
+                                    if (element.TryGetInt64(out long l))
+                                        return l;
+                                    return element.GetDouble();
+                                case JsonValueKind.True:
+                                case JsonValueKind.False:
+                                    return element.GetBoolean();
+                                case JsonValueKind.Null:
+                                    return null;
+                                default:
+                                    return element.ToString();
+                            }
+                        }
+                        
+                        
+                        /// &lt;summary&gt;
+                        /// Sets a value at the given path in the target object.
+                        /// &lt;/summary&gt;
+                        void SetAtPath(Dictionary&lt;string, object&gt; current, List&lt;object&gt; path, JsonElement value)
+                        {
+                            if (path.Count == 0)
+                                return;
+                        
+                            var segment = path[0];
+                            if (path.Count == 1)
+                            {
+                                if (segment is string key)
+                                {
+                                    current[key] = JsonElementToObject(value);
+                                }
+                                else if (segment is int)
+                                {
+                                    throw new Exception(&quot;Expected a dictionary but found an integer key.&quot;);
+                                }
+                                return;
+                            }
+                        
+                            if (segment is string keySegment)
+                            {
+                                if (!current.TryGetValue(keySegment, out var next))
+                                {
+                                    // Decide whether to create a list or dictionary based on the next path segment.
+                                    next = path[1] is int ? (object)new List&lt;object&gt;() : new Dictionary&lt;string, object&gt;();
+                                    current[keySegment] = next;
+                                }
+                                if (next is Dictionary&lt;string, object&gt; nextDict)
+                                {
+                                    path.RemoveAt(0);
+                                    SetAtPath(nextDict, path, value);
+                                }
+                                else if (next is List&lt;object&gt; nextList)
+                                {
+                                    path.RemoveAt(0);
+                                    SetAtPathInList(nextList, path, value);
+                                }
+                            }
+                        }
+                        
+                        /// &lt;summary&gt;
+                        /// Helper method for setting a value in a list given a path.
+                        /// &lt;/summary&gt;
+                        void SetAtPathInList(List&lt;object&gt; list, List&lt;object&gt; path, JsonElement value)
+                        {
+                            if (path.Count == 0)
+                                return;
+                        
+                            if (!(path[0] is int index))
+                                throw new Exception(&quot;Expected an integer index in list path.&quot;);
+                        
+                            if (path.Count == 1)
+                            {
+                                while (list.Count &lt;= index)
+                                    list.Add(null);
+                                list[index] = JsonElementToObject(value);
+                                return;
+                            }
+                        
+                            while (list.Count &lt;= index)
+                                list.Add(null);
+                        
+                            if (list[index] == null)
+                            {
+                                list[index] = path[1] is int ? (object)new List&lt;object&gt;() : new Dictionary&lt;string, object&gt;();
+                            }
+                        
+                            if (list[index] is Dictionary&lt;string, object&gt; dict)
+                            {
+                                path.RemoveAt(0);
+                                SetAtPath(dict, path, value);
+                            }
+                            else if (list[index] is List&lt;object&gt; innerList)
+                            {
+                                path.RemoveAt(0);
+                                SetAtPathInList(innerList, path, value);
+                            }
+                        }
+                                                
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </section>
+    <!-- <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/231.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section> -->
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/GIF/MyConsoleApp.gif" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <!-- <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/232.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section> -->
+
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/233.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section> 
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/234.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/235.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/236.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/237.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/238.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/239.png" alt="blog">
             <figcaption class="white">CW</figcaption>
         </figure>
     </section>
