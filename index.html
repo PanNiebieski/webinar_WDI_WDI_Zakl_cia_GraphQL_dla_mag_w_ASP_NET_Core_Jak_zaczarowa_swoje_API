@@ -10,10 +10,13 @@
         <link rel="stylesheet" href="vendors/shower-ribbon/styles/screen-16x9.css" />
         <link rel="stylesheet" href="vendors/shower-CezaryWalenciuk/styles/main.css" />
         <!-- Prism.js -->
-        <link rel="stylesheet" href="vendors/prism/prism-my-white.css" />
         <link rel="stylesheet" href="vendors/prism/custom-prism.css" />
-        <link rel="stylesheet" href="codegrid-white.css" />
-    
+        <!-- <link rel="stylesheet" href="vendors/prism/prism-my-white.css" />
+        <link rel="stylesheet" href="codegrid-white.css" /> -->
+  
+        <link rel="stylesheet" href="vendors/prism/prism-my-dark.css" />
+        <link rel="stylesheet" href="codegrid-dark.css" /> 
+ 
         <meta property="og:type" content="website">
         <meta property="og:title" content="Zaklęcia GraphQL dla magów ASP.NET Core: Jak zaczarować swoje API">
         <meta property="og:description" content="Presentation for WDI">
@@ -558,32 +561,32 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
 
 <!--Hello word example-->
 
-<section class="slide prism over bhgry">
-    <div class="grid-container">
-        <div class="HeaderTitle GG"> 
-            <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
-        </div>
-        <div class="PlaceCodeHere canscroll">
-            <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
-                <code style="line-height: 21px !important;">
-                    var builder = WebApplication.CreateBuilder(args);
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">ASP.NET Program.cs Hello World</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 31px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 31px !important;">
+                        var builder = WebApplication.CreateBuilder(args);
 
-                    builder.Services
-                        .AddGraphQLServer()
-                        .AddQueryType&lt;Query&gt;();
-                    
-                    var app = builder.Build();
-                    app.MapGraphQL();
-                    
-                    app.MapGet(&quot;/&quot;, () =&gt;
-                    { return Results.Redirect($&quot;/graphql&quot;, permanent: true); });
-                    
-                    app.Run();
-                </code>
-            </pre>
+                        builder.Services
+                            .AddGraphQLServer()
+                            .AddQueryType&lt;Query&gt;();
+                        
+                        var app = builder.Build();
+                        app.MapGraphQL();
+                        
+                        app.MapGet(&quot;/&quot;, () =&gt;
+                        { return Results.Redirect($&quot;/graphql&quot;, permanent: true); });
+                        
+                        app.Run();
+                    </code>
+                </pre>
+            </div>
         </div>
-    </div>
-</section>  
+    </section>  
 
     <!-- <section class="slide" style="background-color:black">
         <figure>
@@ -595,11 +598,12 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
     <section class="slide prism over bhgry">
         <div class="grid-container">
             <div class="HeaderTitle GG"> 
-                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+                <h2 class="headerCODE GG">Hello World Query Hello</h2>
             </div>
-            <div class="PlaceCodeHere canscroll">
-                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
-                    <code style="line-height: 21px !important;">
+            <div class="PlaceCodeHere ">
+                <pre style="font-size: 28px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 28px !important;">
+
                         public class Query
                         {
                             public string Hello(string name = &quot;World&quot;,
@@ -704,11 +708,19 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
     <section class="slide prism over bhgry">
         <div class="grid-container">
             <div class="HeaderTitle GG"> 
-                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+                <h2 class="headerCODE GG">Klasy reprezentujące relacje w EF Core</h2>
             </div>
             <div class="PlaceCodeHere canscroll">
                 <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
                     <code style="line-height: 21px !important;">
+
+
+
+
+
+
+
+
 
                         public class Document
                         {
@@ -755,11 +767,12 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
     <section class="slide prism over bhgry">
         <div class="grid-container">
             <div class="HeaderTitle GG"> 
-                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+                <h2 class="headerCODE GG">Konfiguracja AppDbContext dla tej aplikacji</h2>
             </div>
-            <div class="PlaceCodeHere canscroll">
+            <div class="PlaceCodeHere ">
                 <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
                     <code style="line-height: 21px !important;">
+
                         public class AppDbContext : DbContext
                         {
                             public AppDbContext(DbContextOptions&lt;AppDbContext&gt; options) : base(options) { }
@@ -798,9 +811,9 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
     <section class="slide prism over bhgry">
         <div class="grid-container">
             <div class="HeaderTitle GG"> 
-                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+                <h2 class="headerCODE GG">Query dla tego projektu</h2>
             </div>
-            <div class="PlaceCodeHere canscroll">
+            <div class="PlaceCodeHere ">
                 <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
                     <code style="line-height: 21px !important;">
 
@@ -825,11 +838,12 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
     <section class="slide prism over bhgry">
         <div class="grid-container">
             <div class="HeaderTitle GG"> 
-                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+                <h2 class="headerCODE GG">Program CS</h2>
             </div>
-            <div class="PlaceCodeHere canscroll">
-                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
-                    <code style="line-height: 21px !important;">
+            <div class="PlaceCodeHere ">
+                <pre style="font-size: 26px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 26px !important;">
+
                         var builder = WebApplication.CreateBuilder(args);
 
                         // Add services to the container
@@ -882,11 +896,12 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
     <section class="slide prism over bhgry">
         <div class="grid-container">
             <div class="HeaderTitle GG"> 
-                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+                <h2 class="headerCODE GG">Pełny przykład demo z EF Core : Program.cs</h2>
             </div>
-            <div class="PlaceCodeHere canscroll">
+            <div class="PlaceCodeHere ">
                 <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
                     <code style="line-height: 21px !important;">
+
                         var builder = WebApplication.CreateBuilder(args);
 
                         // Add services to the container
@@ -910,8 +925,7 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
                         
                         app.MapGraphQL();
                         
-                        app.Run();
-                                                                              
+                        app.Run();                                                   
                     </code>
                 </pre>
             </div>
@@ -926,7 +940,7 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
     <section class="slide prism over bhgry">
         <div class="grid-container">
             <div class="HeaderTitle GG"> 
-                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+                <h2 class="headerCODE GG">Pełny przykład demo z EF Core : Query</h2>
             </div>
             <div class="PlaceCodeHere canscroll">
                 <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
@@ -1117,11 +1131,23 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
     <section class="slide prism over bhgry">
         <div class="grid-container">
             <div class="HeaderTitle GG"> 
-                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+                <h2 class="headerCODE GG">Ukrywanie pól i ich dodowanie</h2>
             </div>
             <div class="PlaceCodeHere canscroll">
                 <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
                     <code style="line-height: 21px !important;">
+
+
+
+
+
+
+
+
+
+
+
+
                         public class DocumentType : ObjectType&lt;Document&gt;
                         {
                             protected override void Configure(IObjectTypeDescriptor&lt;Document&gt; descriptor)
@@ -1190,11 +1216,165 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
     <section class="slide prism over bhgry">
         <div class="grid-container">
             <div class="HeaderTitle GG"> 
-                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+                <h2 class="headerCODE GG">DocumentRepository z Dapper</h2>
             </div>
             <div class="PlaceCodeHere canscroll">
                 <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
                     <code style="line-height: 21px !important;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         public class DocumentRepository
                         {
                             private readonly string _connectionString;
@@ -1396,6 +1576,10 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
             <div class="PlaceCodeHere canscroll">
                 <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
                     <code style="line-height: 21px !important;">
+
+
+
+ 
                         [UseOffsetPaging]
                         [UseSorting(typeof(DocumentSortInputType))]
                         [UseFiltering(typeof(UserFilterType))]
@@ -1413,7 +1597,8 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
                                 }
                             }
                     
-                            var filterDic = resolver.ArgumentValue&lt;IReadOnlyDictionary&lt;string, object&gt;?&gt;(&quot;where&quot;);
+                            var filterDic = resolver.ArgumentValue&lt;IReadOnlyDictionary&lt;string, object&gt;?&gt;
+                                (&quot;where&quot;);
                     
                             string? orderBy = null;
                             string? direction = &quot;ASC&quot;;
@@ -1508,7 +1693,7 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
     <section class="slide prism over bhgry">
         <div class="grid-container">
             <div class="HeaderTitle GG"> 
-                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+                <h2 class="headerCODE GG">Redis GraphQL Przykład</h2>
             </div>
             <div class="PlaceCodeHere canscroll">
                 <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
@@ -1533,7 +1718,8 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
                             [UsePaging(IncludeTotalCount = true, MaxPageSize = 10)]
                             [UseProjection]
                             [UseFiltering]
-                            public IQueryable&lt;Book&gt; GetBook(IResolverContext context) =&gt; _books.Filter(context);
+                            public IQueryable&lt;Book&gt; GetBook(IResolverContext context)
+                                 =&gt; _books.Filter(context);
                         }
                     </code>
                 </pre>
@@ -1543,11 +1729,12 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
     <section class="slide prism over bhgry">
         <div class="grid-container">
             <div class="HeaderTitle GG"> 
-                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+                <h2 class="headerCODE GG">Redis GraphQL Przykład Program.cs</h2>
             </div>
-            <div class="PlaceCodeHere canscroll">
-                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
-                    <code style="line-height: 21px !important;">
+            <div class="PlaceCodeHere ">
+                <pre style="font-size: 25px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 25px !important;">
+
                         using GraphQLBlog;
                         using Redis.OM;
                         using Redis.OM.Contracts;
@@ -1612,11 +1799,12 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
     <section class="slide prism over bhgry">
         <div class="grid-container">
             <div class="HeaderTitle GG"> 
-                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+                <h2 class="headerCODE GG">ProductType przykład bardziej złożonego typu</h2>
             </div>
             <div class="PlaceCodeHere canscroll">
                 <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
                     <code style="line-height: 21px !important;">
+
                         // GraphQL Schema Types
                         public class ProductType : ObjectType&lt;Product&gt;
                         {
@@ -1713,11 +1901,48 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
     <section class="slide prism over bhgry">
         <div class="grid-container">
             <div class="HeaderTitle GG"> 
-                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+                <h2 class="headerCODE GG">REST API do dema</h2>
             </div>
             <div class="PlaceCodeHere canscroll">
-                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
-                    <code style="line-height: 21px !important;">
+                <pre style="font-size: 17px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 17px !important;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         using Microsoft.EntityFrameworkCore;
                         using Scalar.AspNetCore;
                         
@@ -1803,11 +2028,13 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
     <section class="slide prism over bhgry">
         <div class="grid-container">
             <div class="HeaderTitle GG"> 
-                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+                <h2 class="headerCODE GG">Endpointy do REST API</h2>
             </div>
             <div class="PlaceCodeHere canscroll">
-                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
-                    <code style="line-height: 21px !important;">
+                <pre style="font-size: 17px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 17px !important;">
+
+
                         public static class DocumentViewEndpointExtensions
                         {
                             public static IEndpointRouteBuilder MapDocumentViewEndpoints(this IEndpointRouteBuilder endpoints)
@@ -1844,20 +2071,44 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
             </div>
         </div>
     </section>
-     <section class="slide" style="background-color:black">
+     <!-- <section class="slide" style="background-color:black">
         <figure>
             <img class="cover" src="pictures/159.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>  -->
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/160.png" alt="blog">
             <figcaption class="white">CW</figcaption>
         </figure>
     </section> 
     <section class="slide prism over bhgry">
         <div class="grid-container">
             <div class="HeaderTitle GG"> 
-                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+                <h2 class="headerCODE GG">DocumentViewsExtendObjecType       [ExtendObjectType(typeof(Document))]</h2>
             </div>
             <div class="PlaceCodeHere canscroll">
-                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
-                    <code style="line-height: 21px !important;">
+                <pre style="font-size: 19px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 19px !important;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         //[Node]
                         [ExtendObjectType(typeof(Document))]
                         public sealed class DocumentViewsExtendObjecType
@@ -1906,20 +2157,22 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
             </div>
         </div>
     </section>
-    <!-- <section class="slide" style="background-color:black">
+
+        <!-- <section class="slide" style="background-color:black">
         <figure>
-            <img class="cover" src="pictures/160.png" alt="blog">
+            <img class="cover" src="pictures/161.png" alt="blog">
             <figcaption class="white">CW</figcaption>
         </figure>
     </section> -->
     <section class="slide prism over bhgry">
         <div class="grid-container">
             <div class="HeaderTitle GG"> 
-                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+                <h2 class="headerCODE GG">Program.cs coraz bardziej rośnie</h2>
             </div>
             <div class="PlaceCodeHere canscroll">
                 <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
                     <code style="line-height: 21px !important;">
+
                         using Microsoft.EntityFrameworkCore;
                         using System.Net.Http.Headers;
                         
@@ -1933,7 +2186,8 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
                         {
                             client.BaseAddress = new Uri(&quot;https://localhost:2222&quot;);
                             client.DefaultRequestHeaders.Accept.Clear();
-                            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(&quot;application/json&quot;));
+                            client.DefaultRequestHeaders.Accept.
+                                Add(new MediaTypeWithQualityHeaderValue(&quot;application/json&quot;));
                         });
                         
                         
@@ -1958,18 +2212,13 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
             </div>
         </div>
     </section>
+
     <!-- <section class="slide" style="background-color:black">
-        <figure>
-            <img class="cover" src="pictures/161.png" alt="blog">
-            <figcaption class="white">CW</figcaption>
-        </figure>
-    </section> -->
-    <section class="slide" style="background-color:black">
         <figure>
             <img class="cover" src="pictures/162.png" alt="blog">
             <figcaption class="white">CW</figcaption>
         </figure>
-    </section>
+    </section> -->
     <section class="slide" style="background-color:black">
         <figure>
             <img class="cover" src="pictures/163.png" alt="blog">
@@ -2051,7 +2300,7 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
     <section class="slide prism over bhgry">
         <div class="grid-container">
             <div class="HeaderTitle GG"> 
-                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+                <h2 class="headerCODE GG">Ten endpoint pobierze batchowo wszystkie dane 1 zapytaniem</h2>
             </div>
             <div class="PlaceCodeHere canscroll">
                 <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
@@ -2072,20 +2321,59 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
             </div>
         </div>
     </section>
-    <!-- <section class="slide" style="background-color:black">
+     <section class="slide" style="background-color:black">
         <figure>
             <img class="cover" src="pictures/176.png" alt="blog">
             <figcaption class="white">CW</figcaption>
         </figure>
-    </section> -->
+    </section> 
+    <!-- <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/177.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>   -->
     <section class="slide prism over bhgry">
         <div class="grid-container">
             <div class="HeaderTitle GG"> 
-                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+                <h2 class="headerCODE GG">ViewsByKeyDataLoader czyli DataLoader jak klasa</h2>
             </div>
             <div class="PlaceCodeHere canscroll">
-                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
-                    <code style="line-height: 21px !important;">
+                <pre style="font-size: 17px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 17px !important;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         public class ViewsByKeyDataLoader : BatchDataLoader&lt;KeyAndSpan, DocumentViews&gt;
                         {
                             private readonly IHttpClientFactory _clientFactory;
@@ -2152,18 +2440,13 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
             </div>
         </div>
     </section>
-     <!-- <section class="slide" style="background-color:black">
-        <figure>
-            <img class="cover" src="pictures/177.png" alt="blog">
-            <figcaption class="white">CW</figcaption>
-        </figure>
-    </section>  -->
-    <section class="slide" style="background-color:black">
+
+    <!-- <section class="slide" style="background-color:black">
         <figure>
             <img class="cover" src="pictures/178.png" alt="blog">
             <figcaption class="white">CW</figcaption>
         </figure>
-    </section>
+    </section> -->
     <section class="slide" style="background-color:black">
         <figure>
             <img class="cover" src="pictures/179.png" alt="blog">
@@ -2197,7 +2480,7 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
     <section class="slide prism over bhgry">
         <div class="grid-container">
             <div class="HeaderTitle GG"> 
-                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+                <h2 class="headerCODE GG">Prosty przykład DataLoader From Hotchocolate.Types.Analyzers</h2>
             </div>
             <div class="PlaceCodeHere canscroll">
                 <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
@@ -2295,17 +2578,22 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
             </div>
         </div>
     </section>
-    <!-- <section class="slide" style="background-color:black">
+     <!-- <section class="slide" style="background-color:black">
         <figure>
             <img class="cover" src="pictures/185.png" alt="blog">
             <figcaption class="white">CW</figcaption>
         </figure>
-    </section> -->
-
+    </section>  -->
+    <!-- <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/186.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>  -->
     <section class="slide prism over bhgry">
         <div class="grid-container">
             <div class="HeaderTitle GG"> 
-                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+                <h2 class="headerCODE GG">Ustawianie opcji generowanego kodu w Properties/ModuleInfo.cs</h2>
             </div>
             <div class="PlaceCodeHere canscroll">
                 <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
@@ -2318,18 +2606,13 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
             </div>
         </div>
     </section>
+
     <!-- <section class="slide" style="background-color:black">
-        <figure>
-            <img class="cover" src="pictures/186.png" alt="blog">
-            <figcaption class="white">CW</figcaption>
-        </figure>
-    </section> -->
-    <section class="slide" style="background-color:black">
         <figure>
             <img class="cover" src="pictures/187.png" alt="blog">
             <figcaption class="white">CW</figcaption>
         </figure>
-    </section>
+    </section> -->
     <section class="slide" style="background-color:black">
         <figure>
             <img class="cover" src="pictures/188.png" alt="blog">
@@ -2443,11 +2726,18 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
     <section class="slide prism over bhgry">
         <div class="grid-container">
             <div class="HeaderTitle GG"> 
-                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+                <h2 class="headerCODE GG">HttpRequestInterceptor do ustawianie GlobalState</h2>
             </div>
             <div class="PlaceCodeHere canscroll">
-                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
-                    <code style="line-height: 21px !important;">
+                <pre style="font-size: 17px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 17px !important;">
+
+
+
+
+
+
+
                         public class HttpRequestInterceptor : DefaultHttpRequestInterceptor
                         {
                             public override ValueTask OnCreateAsync(HttpContext context,
@@ -2493,13 +2783,13 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
             <img class="cover" src="pictures/202.png" alt="blog">
             <figcaption class="white">CW</figcaption>
         </figure>
-    </section> -->
+    </section> 
     <section class="slide" style="background-color:black">
         <figure>
             <img class="cover" src="pictures/203.png" alt="blog">
             <figcaption class="white">CW</figcaption>
         </figure>
-    </section>
+    </section> -->
     <section class="slide" style="background-color:black">
         <figure>
             <img class="cover" src="pictures/204.png" alt="blog">
@@ -2514,6 +2804,42 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
             <div class="PlaceCodeHere canscroll">
                 <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
                     <code style="line-height: 21px !important;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         public class Mutation
                         {
                             [Error&lt;NotAuthenticatedException&gt;]
@@ -2529,7 +2855,8 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
                                 CancellationToken cancellationToken)
                             {
                                 int userId = CheckUser(userName, password);
-                                return await repository.AddDocumentToWatchlistAsync(documentId, userId, cancellationToken);
+                                return await repository.AddDocumentToWatchlistAsync
+                                    (documentId, userId, cancellationToken);
                             }
                         
                             [Error&lt;NotAuthenticatedException&gt;]
@@ -2546,7 +2873,8 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
                                 CancellationToken cancellationToken)
                             {
                                 int userId = CheckUser(userName, password);
-                                return await repository.RemoveDocumentFromWatchlistAsync(documentId, userId, cancellationToken);
+                                return await repository.RemoveDocumentFromWatchlistAsync
+                                    (documentId, userId, cancellationToken);
                             }
                         
                             private int CheckUser(string? userName, string? password)
@@ -2586,11 +2914,84 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
     <section class="slide prism over bhgry">
         <div class="grid-container">
             <div class="HeaderTitle GG"> 
-                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+                <h2 class="headerCODE GG">WatchlistRepository</h2>
             </div>
             <div class="PlaceCodeHere canscroll">
-                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
-                    <code style="line-height: 21px !important;">
+                <pre style="font-size: 17px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 17px !important;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         public class WatchlistRepository
                         {
                             private readonly AppDbContext _dbContext;
@@ -2610,7 +3011,8 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
                         
                                 // Check if the document is already in the watchlist for this user
                                 var existingWatchlist = await _dbContext.Watchlists
-                                    .FirstOrDefaultAsync(w =&gt; w.DocumentId == documentId &amp;&amp; w.UserId == userId, cancellationToken);
+                                    .FirstOrDefaultAsync
+                                        (w =&gt; w.DocumentId == documentId &amp;&amp; w.UserId == userId, cancellationToken);
                         
                                 if (existingWatchlist != null)
                                 {
@@ -2631,7 +3033,8 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
                             public async Task&lt;bool&gt; RemoveDocumentFromWatchlistAsync(
                                 int documentId, int userId, CancellationToken cancellationToken)
                             {
-                                if (!await _dbContext.Documents.AnyAsync(d =&gt; d.Id == documentId, cancellationToken))
+                                if (!await _dbContext.Documents.
+                                    AnyAsync(d =&gt; d.Id == documentId, cancellationToken))
                                 {
                                     throw new DocumentDoesntExist();
                                 }
@@ -2695,6 +3098,67 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
             </div>
         </div>
     </section>
+    <section class="slide prism over bhgry">
+        <div class="grid-container">
+            <div class="HeaderTitle GG"> 
+                <h2 class="headerCODE GG">NotAuthenticatedException WrongPasswordException UserDoesNotExistException WatchlistItemDoesNotExistException</h2>
+            </div>
+            <div class="PlaceCodeHere canscroll">
+                <pre style="font-size: 17px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 17px !important;">
+
+
+
+
+
+
+
+
+
+
+                        // Updated exception classes with consistent naming
+                        public class NotAuthenticatedException : Exception
+                        {
+                            public NotAuthenticatedException() : base(&quot;User is not authenticated&quot;) { }
+                        }
+                        
+                        public class WrongPasswordException : Exception
+                        {
+                            public WrongPasswordException() : base(&quot;Wrong password&quot;) { }
+                        }
+                        
+                        public class UserDoesNotExistException : Exception
+                        {
+                            public UserDoesNotExistException() : base(&quot;User does not exist&quot;) { }
+                        }
+                        
+                        public class DocumentDoesntExist : Exception
+                        {
+                            public DocumentDoesntExist() : base(&quot;Document does not exist&quot;) { }
+                        }
+                        
+                        public class WatchlistItemDoesNotExistException : Exception
+                        {
+                            public WatchlistItemDoesNotExistException() : base(&quot;Watchlist item does not exist&quot;) { }
+                        }
+                        
+                        public static class Users
+                        {
+                            public static int? GetId(string name)
+                            {
+                                return name switch
+                                {
+                                    &quot;cezary&quot; =&gt; 1,
+                                    &quot;john&quot; =&gt; 2,
+                                    _ =&gt; null
+                                };
+                            }
+                        }
+                    </code>
+                </pre>
+            </div>
+        </div>
+    </section>
     <!-- <section class="slide" style="background-color:black">
         <figure>
             <img class="cover" src="pictures/206.png" alt="blog">
@@ -2707,12 +3171,12 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
             <figcaption class="white">CW</figcaption>
         </figure>
     </section> -->
-    <section class="slide" style="background-color:black">
+    <!-- <section class="slide" style="background-color:black">
         <figure>
             <img class="cover" src="pictures/208.png" alt="blog">
             <figcaption class="white">CW</figcaption>
         </figure>
-    </section>
+    </section> -->
     <section class="slide" style="background-color:black">
         <figure>
             <img class="cover" src="pictures/209.png" alt="blog">
@@ -2764,11 +3228,14 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
     <section class="slide prism over bhgry">
         <div class="grid-container">
             <div class="HeaderTitle GG"> 
-                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+                <h2 class="headerCODE GG">QuestionMutations startujemy z wysłaniem wiadomości</h2>
             </div>
             <div class="PlaceCodeHere canscroll">
                 <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
                     <code style="line-height: 21px !important;">
+
+
+
                         [ExtendObjectType(typeof(Mutation))]
                         public class QuestionMutations
                         {
@@ -2803,11 +3270,25 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
     <section class="slide prism over bhgry">
         <div class="grid-container">
             <div class="HeaderTitle GG"> 
-                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+                <h2 class="headerCODE GG">DocumentSubscriptions czyli odbiór wiadomości</h2>
             </div>
             <div class="PlaceCodeHere canscroll">
                 <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
                     <code style="line-height: 21px !important;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+              
                         public class DocumentSubscriptions
                         {
                             [Topic(&quot;questions&quot;)]
@@ -2851,11 +3332,11 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
     <section class="slide prism over bhgry">
         <div class="grid-container">
             <div class="HeaderTitle GG"> 
-                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+                <h2 class="headerCODE GG">Program.cs puchnie</h2>
             </div>
             <div class="PlaceCodeHere canscroll">
-                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
-                    <code style="line-height: 21px !important;">
+                <pre style="font-size: 23px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 23px !important;">
                         builder.Services
                             .AddGraphQLServer()
                             .AddProjections()
@@ -2883,11 +3364,64 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
     <section class="slide prism over bhgry">
         <div class="grid-container">
             <div class="HeaderTitle GG"> 
-                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+                <h2 class="headerCODE GG">BackgroundServiceDocumentTaskPublisher</h2>
             </div>
             <div class="PlaceCodeHere canscroll">
-                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
-                    <code style="line-height: 21px !important;">
+                <pre style="font-size: 18px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 18px !important;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         public class BackgroundServiceDocumentTaskPublisher : BackgroundService
                         {
                             private readonly IServiceScopeFactory _scopeFactory;
@@ -2905,7 +3439,8 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
                                 &quot;Translate&quot;
                             };
                         
-                            public BackgroundServiceDocumentTaskPublisher(IServiceScopeFactory scopeFactory, ITopicEventSender eventSender)
+                            public BackgroundServiceDocumentTaskPublisher
+                                (IServiceScopeFactory scopeFactory, ITopicEventSender eventSender)
                             {
                                 _scopeFactory = scopeFactory ?? throw new ArgumentNullException(nameof(scopeFactory));
                                 _eventSender = eventSender ?? throw new ArgumentNullException(nameof(eventSender));
@@ -2942,11 +3477,13 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
                                                 // Send the task to the topic
                                                 await _eventSender.SendAsync(&quot;DocumentTasked&quot;, documentTask, stoppingToken);
                         
-                                                Console.WriteLine($&quot;Published task: {randomTask} for document ID: {randomDocumentId}&quot;);
+                                                Console.WriteLine
+                                                    ($&quot;Published task: {randomTask} for document ID: {randomDocumentId}&quot;);
                                             }
                                             else
                                             {
-                                                Console.WriteLine(&quot;No documents found in the database.&quot;);
+                                                Console.WriteLine
+                                                    (&quot;No documents found in the database.&quot;);
                                             }
                                         }
                         
@@ -2973,11 +3510,54 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
     <section class="slide prism over bhgry">
         <div class="grid-container">
             <div class="HeaderTitle GG"> 
-                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+                <h2 class="headerCODE GG">Odczyt z kolejki IAsyncEnumerable</h2>
             </div>
             <div class="PlaceCodeHere canscroll">
-                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
-                    <code style="line-height: 21px !important;">
+                <pre style="font-size: 17px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 17px !important;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         public class DocumentSubscriptions
                         {
                             [Subscribe(With = nameof(OnDocumentTaskAsync))]
@@ -3064,33 +3644,44 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
             <img class="cover" src="pictures/218.png" alt="blog">
             <figcaption class="white">CW</figcaption>
         </figure>
-    </section>
+    </section>     
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/219.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section> 
     <section class="slide" style="background-color:black">
         <figure>
             <img class="cover" src="pictures/GIF/HowDeferAndStreamWorks.gif" alt="blog">
             <figcaption class="white">CW</figcaption>
         </figure>
     </section>
+
     <!-- <section class="slide" style="background-color:black">
-        <figure>
-            <img class="cover" src="pictures/219.png" alt="blog">
-            <figcaption class="white">CW</figcaption>
-        </figure>
-    </section> -->
-    <section class="slide" style="background-color:black">
         <figure>
             <img class="cover" src="pictures/220.png" alt="blog">
             <figcaption class="white">CW</figcaption>
         </figure>
-    </section>
+    </section> -->
     <section class="slide prism over bhgry">
         <div class="grid-container">
             <div class="HeaderTitle GG"> 
-                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+                <h2 class="headerCODE GG">Modele do tego przykładu</h2>
             </div>
             <div class="PlaceCodeHere canscroll">
                 <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
                     <code style="line-height: 21px !important;">
+
+
+
+
+
+
+
+
+
+
                         public class Product
                         {
                             public int Id { get; set; }
@@ -3148,15 +3739,50 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
     <section class="slide prism over bhgry">
         <div class="grid-container">
             <div class="HeaderTitle GG"> 
-                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+                <h2 class="headerCODE GG">GraphQL Schema Types</h2>
             </div>
             <div class="PlaceCodeHere canscroll">
                 <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
                     <code style="line-height: 21px !important;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         // GraphQL Schema Types
                         public class ProductType : ObjectType&lt;Product&gt;
                         {
-                            protected override void Configure(IObjectTypeDescriptor&lt;Product&gt; descriptor)
+                            protected override void Configure
+                                (IObjectTypeDescriptor&lt;Product&gt; descriptor)
                             {
                                 descriptor.Field(p =&gt; p.Id)
                                     .Type&lt;NonNullType&lt;IntType&gt;&gt;();
@@ -3181,7 +3807,8 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
                         
                         public class ProductDetailsType : ObjectType&lt;ProductDetails&gt;
                         {
-                            protected override void Configure(IObjectTypeDescriptor&lt;ProductDetails&gt; descriptor)
+                            protected override void Configure
+                                (IObjectTypeDescriptor&lt;ProductDetails&gt; descriptor)
                             {
                                 descriptor.Field(d =&gt; d.Manufacturer).Type&lt;StringType&gt;();
                                 descriptor.Field(d =&gt; d.ManufactureDate).Type&lt;DateTimeType&gt;();
@@ -3232,11 +3859,43 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
     <section class="slide prism over bhgry">
         <div class="grid-container">
             <div class="HeaderTitle GG"> 
-                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+                <h2 class="headerCODE GG">ProductResolvers</h2>
             </div>
             <div class="PlaceCodeHere canscroll">
                 <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
                     <code style="line-height: 21px !important;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         // Field resolvers for deferred and streamed fields.
                         public class ProductResolvers
                         {
@@ -3260,11 +3919,26 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
                             {
                                 var reviews = new List&lt;Review&gt;
                                     {
-                                        new Review { Id = 1, AuthorName = &quot;Alice&quot;, Rating = 5, Comment = &quot;Excellent product!&quot;, CreatedAt = DateTime.Now.AddDays(-5) },
-                                        new Review { Id = 2, AuthorName = &quot;Bob&quot;, Rating = 4, Comment = &quot;Good value for money&quot;, CreatedAt = DateTime.Now.AddDays(-10) },
-                                        new Review { Id = 3, AuthorName = &quot;Charlie&quot;, Rating = 3, Comment = &quot;Average performance&quot;, CreatedAt = DateTime.Now.AddDays(-15) },
-                                        new Review { Id = 4, AuthorName = &quot;David&quot;, Rating = 5, Comment = &quot;Exceeded expectations&quot;, CreatedAt = DateTime.Now.AddDays(-20) },
-                                        new Review { Id = 5, AuthorName = &quot;Eve&quot;, Rating = 2, Comment = &quot;Not worth the price&quot;, CreatedAt = DateTime.Now.AddDays(-25) }
+                                        new Review 
+                                        { Id = 1, AuthorName = &quot;Alice&quot;, Rating = 5, 
+                                            Comment = &quot;Excellent product!&quot;, 
+                                            CreatedAt = DateTime.Now.AddDays(-5) },
+                                        new Review 
+                                        { Id = 2, AuthorName = &quot;Bob&quot;, Rating = 4, 
+                                            Comment = &quot;Good value for money&quot;, 
+                                            CreatedAt = DateTime.Now.AddDays(-10) },
+                                        new Review 
+                                        { Id = 3, AuthorName = &quot;Charlie&quot;, Rating = 3, 
+                                            Comment = &quot;Average performance&quot;, 
+                                            CreatedAt = DateTime.Now.AddDays(-15) },
+                                        new Review 
+                                        { Id = 4, AuthorName = &quot;David&quot;, Rating = 5, 
+                                            Comment = &quot;Exceeded expectations&quot;, 
+                                            CreatedAt = DateTime.Now.AddDays(-20) },
+                                        new Review 
+                                        { Id = 5, AuthorName = &quot;Eve&quot;, Rating = 2, 
+                                            Comment = &quot;Not worth the price&quot;, 
+                                            CreatedAt = DateTime.Now.AddDays(-25) }
                                     };
                         
                                 foreach (var review in reviews)
@@ -3288,11 +3962,11 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
     <section class="slide prism over bhgry">
         <div class="grid-container">
             <div class="HeaderTitle GG"> 
-                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+                <h2 class="headerCODE GG">Query dla przykładu z @defer i @stream</h2>
             </div>
             <div class="PlaceCodeHere canscroll">
-                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
-                    <code style="line-height: 21px !important;">
+                <pre style="font-size: 24px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 25px !important;">
                         public class Query
                         {
                             // The product field takes an id argument.
@@ -3314,12 +3988,18 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
             </div>
         </div>
     </section>
-    <!-- <section class="slide" style="background-color:black">
+     <!-- <section class="slide" style="background-color:black">
         <figure>
             <img class="cover" src="pictures/228.png" alt="blog">
             <figcaption class="white">CW</figcaption>
         </figure>
-    </section> -->
+    </section> 
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/229.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>   -->
     <section class="slide" style="background-color:black">
         <figure>
             <img class="cover" src="pictures/screen/01.png" alt="blog">
@@ -3329,11 +4009,12 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
     <section class="slide prism over bhgry">
         <div class="grid-container">
             <div class="HeaderTitle GG"> 
-                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+                <h2 class="headerCODE GG">Aplikacja ASP.NET Core</h2>
             </div>
             <div class="PlaceCodeHere canscroll">
-                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
-                    <code style="line-height: 21px !important;">
+                <pre style="font-size: 25px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 25px !important;">
+
                         var builder = WebApplication.CreateBuilder(args);
 
                         // Register GraphQL services
@@ -3359,27 +4040,260 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
             </div>
         </div>
     </section>
-    <!-- <section class="slide" style="background-color:black">
-        <figure>
-            <img class="cover" src="pictures/229.png" alt="blog">
-            <figcaption class="white">CW</figcaption>
-        </figure>
-    </section>  -->
 
-    <section class="slide" style="background-color:black">
+
+    <!-- <section class="slide" style="background-color:black">
         <figure>
             <img class="cover" src="pictures/230.png" alt="blog">
             <figcaption class="white">CW</figcaption>
         </figure>
-    </section>
+    </section> -->
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/231.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section> 
     <section class="slide prism over bhgry">
         <div class="grid-container">
             <div class="HeaderTitle GG"> 
-                <h2 class="headerCODE GG">Confluent.Kafka Consumer</h2>
+                <h2 class="headerCODE GG">Jak odczytyać w C# zapytanie GraphQL?</h2>
             </div>
             <div class="PlaceCodeHere canscroll">
-                <pre style="font-size: 21px;overflow: hidden;  " class="language-csharp">
-                    <code style="line-height: 21px !important;">
+                <pre style="font-size: 18px;overflow: hidden;  " class="language-csharp">
+                    <code style="line-height: 18px !important;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -3908,29 +4822,24 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
     </section>
     <!-- <section class="slide" style="background-color:black">
         <figure>
-            <img class="cover" src="pictures/231.png" alt="blog">
+            <img class="cover" src="pictures/232.png" alt="blog">
             <figcaption class="white">CW</figcaption>
         </figure>
-    </section> -->
+    </section>  -->
     <section class="slide" style="background-color:black">
         <figure>
             <img class="cover" src="pictures/GIF/MyConsoleApp.gif" alt="blog">
             <figcaption class="white">CW</figcaption>
         </figure>
     </section>
-    <!-- <section class="slide" style="background-color:black">
-        <figure>
-            <img class="cover" src="pictures/232.png" alt="blog">
-            <figcaption class="white">CW</figcaption>
-        </figure>
-    </section> -->
 
-    <section class="slide" style="background-color:black">
+
+    <!-- <section class="slide" style="background-color:black">
         <figure>
             <img class="cover" src="pictures/233.png" alt="blog">
             <figcaption class="white">CW</figcaption>
         </figure>
-    </section> 
+    </section>  -->
     <section class="slide" style="background-color:black">
         <figure>
             <img class="cover" src="pictures/234.png" alt="blog">
@@ -3966,6 +4875,13 @@ Przygotuj się na magiczną podróż, podczas której Twoje API stanie się nie 
     <section class="slide" style="background-color:black">
         <figure>
             <img class="cover" src="pictures/239.png" alt="blog">
+            <figcaption class="white">CW</figcaption>
+        </figure>
+    </section>
+
+    <section class="slide" style="background-color:black">
+        <figure>
+            <img class="cover" src="pictures/240.png" alt="blog">
             <figcaption class="white">CW</figcaption>
         </figure>
     </section>
